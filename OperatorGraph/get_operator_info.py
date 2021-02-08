@@ -617,7 +617,7 @@ def json2csv(load_path, save_path):
                 "信物描述", "招聘描述", "招聘补充描述", "是否支援机械", "产地", "出厂时间", "型号", "高度", "最高速度",
                 "爬坡能力", "制动效能", "通过性", "续航", "结构稳定性", "人物履历"]
 
-    fw = open(save_path, "w")
+    fw = open(save_path, "w", encoding="utf-8-sig")
     s_title = ",".join(lst_attr)
     s_title += "\n"
     fw.write(s_title)
@@ -649,24 +649,28 @@ def json2csv(load_path, save_path):
 
 # 示例
 ##################################################################################################
-def example():
+def example(do_tag=0):
     """
     数据预处理全流程示例
     :return: None
     """
     print("- 开始解析 -")
     # 1. 获取并存储全部干员列表
-    operator_list = parser_list_page(crawl_list_page(url_now="http://prts.wiki/w/%E5%B9%B2%E5%91%98%E4%B8%80%E8%A7%88"))
-    print(operator_list)
+    if do_tag in [0, 1]:
+        operator_list = parser_list_page(crawl_list_page(url_now="http://prts.wiki/w/%E5%B9%B2%E5%91%98%E4%B8%80%E8%A7%88"))
+        print(operator_list)
     # 2-1. 输入任意干员代号，获取该干员基本&语音信息
-    operator_dict = check_single_operator("温蒂")
-    pprint(operator_dict)
+    if do_tag in [0, 2]:
+        operator_dict = check_single_operator("温蒂")
+        pprint(operator_dict)
     # 2-2. 载入干员列表，获取列表中全部干员基本&语音信息
-    with open("operator_list.json", "r") as f:
-        lst = json.load(f)
-    check_all_operator(lst_operator=lst)
+    if do_tag in [0, 3]:
+        with open("operator_list.json", "r") as f:
+            lst = json.load(f)
+        check_all_operator(lst_operator=lst)
     # 3. 生成干员信息表格
-    json2csv(load_path="operator_all.json", save_path="operator_all.csv")
+    if do_tag in [0, 4]:
+        json2csv(load_path="operator_all.json", save_path="operator_all.csv")
     print("- 执行完毕 -")
     return None
 
