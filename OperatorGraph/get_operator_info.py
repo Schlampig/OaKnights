@@ -188,6 +188,10 @@ def normalize_spec(s):
     if ";(" in s:
         s = s.replace(";(", ";").replace("）", "")
     s = s.replace("，", ",").replace("；", ";").replace("。", ".").replace("（", "(").replace("）", ")")
+    if "(" in s and ")" not in s:
+        s = s.replace("(", "")
+    if "(" not in s and ")" in s:
+        s = s.replace(")", "")
     return s
 
 
@@ -220,7 +224,7 @@ def normalize_potential(s_k, s_v):
     将潜能类型及潜能值规范化并合并为潜能描述
     :param s_k: string，潜能类型描述
     :param s_v: string，潜能值描述
-    :return: string，潜能描述
+    :return: dict，{潜能类型(string):潜能值(float)}
     """
     d = {"res": "天赋强化", "cost": "部署费用", "hp": "生命上限", "def": "防御值",
          "interval": "攻击速度", "re_deploy": "再部署时间", "atk": "攻击值"}
