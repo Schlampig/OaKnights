@@ -10,11 +10,19 @@ DICT_ATTR = {"代号-中文": None, "代号-英文": None, "代号-日文": None
              "是否为感染者": None, "体细胞与源石融合率": None, "血液源石结晶密度": None,
              "信物描述": None, "职业类型": None, "活跃领域": None, "作战范围": None,
              "能力标签": None, "特性": None,
-             "天赋强化潜能": None, "部署降本潜能": None, "生命提升潜能": None, "防御增强潜能": None,
-             "攻速加快潜能": None, "再部署高效潜能": None, "攻击力提升潜能": None,
+             "潜能": None,
              "再部署时长": None, "部署费用-初始": None, "部署费用-最终": None,
              "最大阻挡数": None, "攻击间隔": None, "生命上限": None, "攻击值": None, "防御值": None, "法术抗性": None,
              "稀有度": None, "是否限定": None, "上线时间": None, "获取方式": None}
+
+
+def norm_potential(s):
+    d = {"天赋强化": "天赋强化", "部署费用": "部署减费", "生命上限": "生命提升", "防御值": "防御加强",
+         "攻击速度": "攻速加强", "再部署时间": "再部署提速", "攻击值": "攻击加强"}
+    if s in d.keys():
+        return d[s]
+    else:
+        return "未知潜能"
 
 
 def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
@@ -49,6 +57,7 @@ def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
                         lst_place.append(operator_dict.get("阵营-团队", None))
                     if operator_dict.get("阵营-组织", None) is not None:
                         lst_place.append(operator_dict.get("阵营-组织", None))
+                    lst_place = list(filter(lambda x:len(x)>0, lst_place))
                     lst_slot = list()
                     for place in lst_place:
                         key = place + "&" + k_slot
@@ -73,7 +82,7 @@ def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
                                 lst_slot.append(str(entity_id))
                                 entity_id += 1
                         if len(lst_slot) > 0:
-                            d_slot[k_slot] = lst_slot  # d_slot["能力标签"] = [1, 2, 3]
+                            d_slot[k_slot] = list(set(lst_slot))  # d_slot["能力标签"] = [1, 2, 3]
                 elif k_slot == "特性":
                     lst_spec = operator_dict.get(k_slot, None)  # lst_spec = ["优先攻击空中单位", "恢复友方单位生命", ...]
                     if lst_spec is not None:
@@ -88,36 +97,20 @@ def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
                                 lst_slot.append(str(entity_id))
                                 entity_id += 1
                         if len(lst_slot) > 0:
-                            d_slot[k_slot] = lst_slot  # d_slot["特性"] = [1, 2, 3]
-                elif k_slot == "潜能描述":
-                    if operator_dict.get(k_slot, None) is not None:
-                        lst_potential = list()  # lst_potential = ["天赋强化潜能", "攻速加快潜能", ...]
-                        for potential in operator_dict.get("潜能描述", None).keys():
-                            if potential == "天赋强化":
-                                lst_potential.append("天赋强化潜能")
-                            if potential == "部署费用":
-                                lst_potential.append("部署降本潜能")
-                            if potential == "生命上限":
-                                lst_potential.append("生命提升潜能")
-                            if potential == "防御值":
-                                lst_potential.append("防御增强潜能")
-                            if potential == "攻击速度":
-                                lst_potential.append("攻速加快潜能")
-                            if potential == "再部署时间":
-                                lst_potential.append("再部署高效潜能")
-                            if potential == "攻击值":
-                                lst_potential.append("攻击力提升潜能")
+                            d_slot[k_slot] = list(set(lst_slot))  # d_slot["特性"] = [1, 2, 3]
+                elif k_slot == "潜能":
+                    if operator_dict.get("潜能描述", None) is not None:
                         lst_slot = list()
-                        for potential in lst_potential:
-                            key = potential + "&" + k_slot
+                        for k_p in operator_dict.get("潜能描述", None).keys():
+                            key = norm_potential(k_p) + "&" + k_slot
                             if key in dict_entity.keys():
                                 lst_slot.append(dict_entity[key])
                             else:
                                 dict_entity[key] = str(entity_id)
                                 lst_slot.append(str(entity_id))
                                 entity_id += 1
-                        if len(lst_slot) > 0:
-                            d_slot[k_slot] = lst_slot  # d_slot["潜能"] = [1, 2, 3]
+                            if len(lst_slot) > 0:
+                                d_slot[k_slot] = list(set(lst_slot))  # d_slot["潜能"] = [1, 2, 3]
                 elif k_slot == "获取方式":
                     lst_obtain = operator_dict.get(k_slot, None)  # lst_obtain = ["公开招募", "活动限定", ...]
                     if lst_obtain is not None and len(lst_obtain) > 0:
@@ -131,7 +124,7 @@ def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
                                 lst_slot.append(str(entity_id))
                                 entity_id += 1
                         if len(lst_slot) > 0:
-                            d_slot[k_slot] = lst_slot  # d_slot["获取方式"] = [1, 2, 3]
+                            d_slot[k_slot] = list(set(lst_slot))  # d_slot["获取方式"] = [1, 2, 3]
                 else:
                     slot_now = operator_dict.get(k_slot, None)
                     if slot_now is not None:
@@ -441,62 +434,6 @@ def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["天赋强化潜能"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["天赋强化潜能"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "天赋强化潜能"
-                id_tempor = d_slot["天赋强化潜能"] + "&" + d_slot["代号-中文"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "干员代号"
-
-            if d_slot["代号-中文"] and d_slot["部署降本潜能"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["部署降本潜能"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "部署降本潜能"
-                id_tempor = d_slot["部署降本潜能"] + "&" + d_slot["代号-中文"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "干员代号"
-
-            if d_slot["代号-中文"] and d_slot["生命提升潜能"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["生命提升潜能"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "生命提升潜能"
-                id_tempor = d_slot["生命提升潜能"] + "&" + d_slot["代号-中文"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "干员代号"
-
-            if d_slot["代号-中文"] and d_slot["防御增强潜能"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["防御增强潜能"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "防御增强潜能"
-                id_tempor = d_slot["防御增强潜能"] + "&" + d_slot["代号-中文"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "干员代号"
-
-            if d_slot["代号-中文"] and d_slot["攻速加快潜能"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["攻速加快潜能"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "攻速加快潜能"
-                id_tempor = d_slot["攻速加快潜能"] + "&" + d_slot["代号-中文"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "干员代号"
-
-            if d_slot["代号-中文"] and d_slot["再部署高效潜能"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["再部署高效潜能"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "再部署高效潜能"
-                id_tempor = d_slot["再部署高效潜能"] + "&" + d_slot["代号-中文"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "干员代号"
-
-            if d_slot["代号-中文"] and d_slot["攻击力提升潜能"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["攻击力提升潜能"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "攻击力提升潜能"
-                id_tempor = d_slot["攻击力提升潜能"] + "&" + d_slot["代号-中文"]
-                if id_tempor not in dict_relation.keys():
-                    dict_relation[id_tempor] = "干员代号"
-
             if d_slot["代号-中文"] and d_slot["稀有度"]:
                 id_tempor = d_slot["代号-中文"] + "&" + d_slot["稀有度"]
                 if id_tempor not in dict_relation.keys():
@@ -510,6 +447,14 @@ def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "限定情况"
                 id_tempor = d_slot["是否限定"] + "&" + d_slot["代号-中文"]
+                if id_tempor not in dict_relation.keys():
+                    dict_relation[id_tempor] = "干员代号"
+
+            if d_slot["代号-中文"] and d_slot["上线时间"]:
+                id_tempor = d_slot["代号-中文"] + "&" + d_slot["上线时间"]
+                if id_tempor not in dict_relation.keys():
+                    dict_relation[id_tempor] = "上线时间"
+                id_tempor = d_slot["上线时间"] + "&" + d_slot["代号-中文"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
@@ -541,14 +486,14 @@ def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
                     if id_tempor not in dict_relation.keys():
                         dict_relation[id_tempor] = "活跃领域"
 
-            if d_slot["代号-中文"] and d_slot["上线时间"]:
-                for i in d_slot["上线时间"]:
+            if d_slot["代号-中文"] and d_slot["潜能"]:
+                for i in d_slot["潜能"]:
                     id_tempor = d_slot["代号-中文"] + "&" + i
                     if id_tempor not in dict_relation.keys():
-                        dict_relation[id_tempor] = "上线时间"
+                        dict_relation[id_tempor] = "潜能"
                     id_tempor = i + "&" + d_slot["代号-中文"]
                     if id_tempor not in dict_relation.keys():
-                        dict_relation[id_tempor] = "上线时间"
+                        dict_relation[id_tempor] = "潜能"
 
     # 生成entity与relation的list
     print("生成实体列表...")
