@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from urllib import request, error, parse
 from pprint import pprint
 
-socket.setdefaulttimeout(60)  # 超过20秒跳过该次操作
+socket.setdefaulttimeout(60)  # 超过设置秒数则跳过该次操作
 
 
 # 获取页面
