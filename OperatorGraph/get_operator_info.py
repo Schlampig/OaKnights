@@ -363,11 +363,11 @@ def parser_operator_info(page_now, is_car=False):
         info = info.string
         # 提取干员基本信息
         if len(re.findall(r"干员名=(.*)\n", info)) == 1:
-            d_info["代号-中文"] = re.findall(r"干员名=(.*)\n", info)[0]
+            d_info["中文代号"] = re.findall(r"干员名=(.*)\n", info)[0]
         if len(re.findall(r"干员名jp=(.*)\n", info)) == 1:
-            d_info["代号-日文"] = re.findall(r"干员名jp=(.*)\n", info)[0]
+            d_info["日文代号"] = re.findall(r"干员名jp=(.*)\n", info)[0]
         if len(re.findall(r"干员外文名=(.*)\n", info)) == 1:
-            d_info["代号-英文"] = re.findall(r"干员外文名=(.*)\n", info)[0]
+            d_info["英文代号"] = re.findall(r"干员外文名=(.*)\n", info)[0]
         if len(re.findall(r"画师=(.*)\n", info)) == 1:
             d_info["画师"] = re.findall(r"画师=(.*)\n", info)[0]
         if len(re.findall(r"配音=(.*)\n", info)) == 1:
@@ -624,7 +624,7 @@ def json2csv(load_path, save_path):
     :return:
     """
     assert load_path.endswith(".json") and save_path.endswith(".csv")
-    lst_attr = ["代号-中文", "代号-日文", "代号-英文", "画师", "配音", "性别", "战斗经验", "出生地", "出生月", "出生日",
+    lst_attr = ["中文代号", "日文代号", "英文代号", "画师", "配音", "性别", "战斗经验", "出生地", "出生月", "出生日",
                 "星座", "种族", "身高", "物理强度", "战场机动", "生理耐受", "战术规划", "战斗技巧", "源石技艺适应性",
                 "是否为感染者", "体细胞与源石融合率", "血液源石结晶密度", "职业类型", "情报编号", "活动地点", "阵营-团队",
                 "阵营-组织", "作战范围", "能力标签", "特性", "再部署时长", "部署费用-初始", "部署费用-最终", "最大阻挡数",
