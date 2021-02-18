@@ -90,6 +90,17 @@ def normalize_fight_exp(s):
     return n_new
 
 
+def normalize_birth_place(s):
+    """
+    将出生地规范化，例如东国与东统一为东。
+    :param s: string，出生地描述
+    :return: string，出生地描述
+    """
+    if "东" in s:  # 注：炎包含"炎-龙门"、"炎-岁"等具体地名，不处理
+        s = "东"
+    return s
+
+
 def normalize_birth(s):
     """
     将出生日规范化，例如1月23日为出生月=01，出生日=23，星座=水瓶座。
@@ -267,7 +278,7 @@ def normalize_debut(s):
     """
     将上线时间规范化为日期（删除时间）
     :param s: string，上线时间描述
-    :return: string，潜能描述
+    :return: string，上线日期描述
     """
     lst_s = s.split()
     return lst_s[0]
@@ -366,7 +377,7 @@ def parser_operator_info(page_now, is_car=False):
         if len(re.findall(r"战斗经验=(.*)\n", info)) == 1:
             d_info["战斗经验"] = normalize_fight_exp(re.findall(r"战斗经验=(.*)\n", info)[0])
         if len(re.findall(r"出身地=(.*)\n", info)) == 1:
-            d_info["出生地"] = re.findall(r"出身地=(.*)\n", info)[0]
+            d_info["出生地"] = normalize_birth_place(re.findall(r"出身地=(.*)\n", info)[0])
         if len(re.findall(r"日=(.*)\n", info)) == 1:
             d_info["出生月"], d_info["出生日"], d_info["星座"] = normalize_birth(re.findall(r"日=(.*)\n", info)[0])
         if len(re.findall(r"【种族】(.*)\n", info)) == 1:
@@ -653,7 +664,7 @@ def json2csv(load_path, save_path):
 
 # 示例
 ##################################################################################################
-def example(do_tag=0):
+def example(do_tag=2):
     """
     数据预处理全流程示例
     :return: None
