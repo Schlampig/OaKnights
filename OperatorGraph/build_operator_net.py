@@ -3,7 +3,7 @@ import pandas as pd
 from copy import deepcopy
 from tqdm import tqdm
 
-DICT_ATTR = {"代号-中文": None, "代号-英文": None, "代号-日文": None, "画师": None, "配音": None,
+DICT_ATTR = {"中文代号": None, "英文代号": None, "日文代号": None, "画师": None, "配音": None,
              "性别": None, "星座": None, "出生月": None, "出生地": None, "种族": None, "身高": None,
              "物理强度": None, "战场机动": None, "生理耐受": None, "战术规划": None, "战斗技巧": None, "源石技艺适应性": None,
              "最高速度": None, "爬坡能力": None, "制动效能": None, "通过性": None, "续航": None, "结构稳定性": None,
@@ -41,7 +41,7 @@ def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
             # 生成实体
             for k_slot in d_slot.keys():
                 # 填充当前干员的槽位信息
-                if k_slot == "代号-中文":
+                if k_slot == "中文代号":
                     key = operator_code + "&" + k_slot
                     if key in dict_entity.keys():
                         d_slot[k_slot] = dict_entity[key]
@@ -138,360 +138,360 @@ def get_entity_and_relation(load_path, save_entity_path, save_relation_path):
 
             # 生成关系
             # 单一关系处理
-            if d_slot["代号-中文"] and d_slot["代号-英文"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["代号-英文"]
+            if d_slot["中文代号"] and d_slot["英文代号"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["英文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "英文代号"
-                id_tempor = d_slot["代号-英文"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["英文代号"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["代号-日文"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["代号-日文"]
+            if d_slot["中文代号"] and d_slot["日文代号"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["日文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "日文代号"
-                id_tempor = d_slot["代号-日文"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["日文代号"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["画师"] and d_slot["代号-中文"]:
-                id_tempor = d_slot["画师"] + "&" + d_slot["代号-中文"]
+            if d_slot["画师"] and d_slot["中文代号"]:
+                id_tempor = d_slot["画师"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "绘制"
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["画师"]
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["画师"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "绘制者"
 
-            if d_slot["配音"] and d_slot["代号-中文"]:
-                id_tempor = d_slot["配音"] + "&" + d_slot["代号-中文"]
+            if d_slot["配音"] and d_slot["中文代号"]:
+                id_tempor = d_slot["配音"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "配音"
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["配音"]
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["配音"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "配音者"
 
-            if d_slot["代号-中文"] and d_slot["性别"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["性别"]
+            if d_slot["中文代号"] and d_slot["性别"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["性别"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "性别"
-                id_tempor = d_slot["性别"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["性别"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["星座"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["星座"]
+            if d_slot["中文代号"] and d_slot["星座"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["星座"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "星座"
-                id_tempor = d_slot["星座"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["星座"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["出生月"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["出生月"]
+            if d_slot["中文代号"] and d_slot["出生月"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["出生月"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "诞生月"
-                id_tempor = d_slot["出生月"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["出生月"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["出生地"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["出生地"]
+            if d_slot["中文代号"] and d_slot["出生地"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["出生地"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "诞生地"
-                id_tempor = d_slot["出生地"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["出生地"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["种族"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["种族"]
+            if d_slot["中文代号"] and d_slot["种族"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["种族"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "种族"
-                id_tempor = d_slot["种族"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["种族"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["身高"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["身高"]
+            if d_slot["中文代号"] and d_slot["身高"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["身高"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "身高"
-                id_tempor = d_slot["身高"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["身高"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["物理强度"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["物理强度"]
+            if d_slot["中文代号"] and d_slot["物理强度"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["物理强度"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "物理强度"
-                id_tempor = d_slot["物理强度"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["物理强度"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["战场机动"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["战场机动"]
+            if d_slot["中文代号"] and d_slot["战场机动"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["战场机动"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "战场机动"
-                id_tempor = d_slot["战场机动"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["战场机动"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["生理耐受"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["生理耐受"]
+            if d_slot["中文代号"] and d_slot["生理耐受"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["生理耐受"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "生理耐受"
-                id_tempor = d_slot["生理耐受"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["生理耐受"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["战术规划"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["战术规划"]
+            if d_slot["中文代号"] and d_slot["战术规划"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["战术规划"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "战术规划"
-                id_tempor = d_slot["战术规划"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["战术规划"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["战斗技巧"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["战斗技巧"]
+            if d_slot["中文代号"] and d_slot["战斗技巧"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["战斗技巧"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "战斗技巧"
-                id_tempor = d_slot["战斗技巧"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["战斗技巧"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["源石技艺适应性"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["源石技艺适应性"]
+            if d_slot["中文代号"] and d_slot["源石技艺适应性"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["源石技艺适应性"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "源石技艺适应性"
-                id_tempor = d_slot["源石技艺适应性"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["源石技艺适应性"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["最高速度"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["最高速度"]
+            if d_slot["中文代号"] and d_slot["最高速度"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["最高速度"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "最高速度"
-                id_tempor = d_slot["最高速度"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["最高速度"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["爬坡能力"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["爬坡能力"]
+            if d_slot["中文代号"] and d_slot["爬坡能力"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["爬坡能力"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "爬坡能力"
-                id_tempor = d_slot["爬坡能力"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["爬坡能力"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["制动效能"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["制动效能"]
+            if d_slot["中文代号"] and d_slot["制动效能"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["制动效能"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "制动效能"
-                id_tempor = d_slot["制动效能"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["制动效能"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["通过性"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["通过性"]
+            if d_slot["中文代号"] and d_slot["通过性"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["通过性"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "通过性"
-                id_tempor = d_slot["通过性"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["通过性"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["续航"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["续航"]
+            if d_slot["中文代号"] and d_slot["续航"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["续航"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "续航"
-                id_tempor = d_slot["续航"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["续航"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["结构稳定性"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["结构稳定性"]
+            if d_slot["中文代号"] and d_slot["结构稳定性"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["结构稳定性"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "结构稳定性"
-                id_tempor = d_slot["结构稳定性"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["结构稳定性"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["是否为感染者"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["是否为感染者"]
+            if d_slot["中文代号"] and d_slot["是否为感染者"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["是否为感染者"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "是否感染"
-                id_tempor = d_slot["是否为感染者"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["是否为感染者"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["体细胞与源石融合率"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["体细胞与源石融合率"]
+            if d_slot["中文代号"] and d_slot["体细胞与源石融合率"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["体细胞与源石融合率"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "体细胞与源石融合率"
-                id_tempor = d_slot["体细胞与源石融合率"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["体细胞与源石融合率"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["血液源石结晶密度"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["血液源石结晶密度"]
+            if d_slot["中文代号"] and d_slot["血液源石结晶密度"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["血液源石结晶密度"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "血液源石结晶密度"
-                id_tempor = d_slot["血液源石结晶密度"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["血液源石结晶密度"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["信物描述"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["信物描述"]
+            if d_slot["中文代号"] and d_slot["信物描述"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["信物描述"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "信物"
-                id_tempor = d_slot["信物描述"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["信物描述"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["职业类型"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["职业类型"]
+            if d_slot["中文代号"] and d_slot["职业类型"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["职业类型"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "职业"
-                id_tempor = d_slot["职业类型"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["职业类型"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["作战范围"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["作战范围"]
+            if d_slot["中文代号"] and d_slot["作战范围"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["作战范围"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "作战范围"
-                id_tempor = d_slot["作战范围"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["作战范围"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["再部署时长"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["再部署时长"]
+            if d_slot["中文代号"] and d_slot["再部署时长"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["再部署时长"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "再部署时长"
-                id_tempor = d_slot["再部署时长"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["再部署时长"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["部署费用-初始"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["部署费用-初始"]
+            if d_slot["中文代号"] and d_slot["部署费用-初始"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["部署费用-初始"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "初始费用"
-                id_tempor = d_slot["部署费用-初始"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["部署费用-初始"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["部署费用-最终"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["部署费用-最终"]
+            if d_slot["中文代号"] and d_slot["部署费用-最终"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["部署费用-最终"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "最终费用"
-                id_tempor = d_slot["部署费用-最终"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["部署费用-最终"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["最大阻挡数"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["最大阻挡数"]
+            if d_slot["中文代号"] and d_slot["最大阻挡数"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["最大阻挡数"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "最大阻挡数"
-                id_tempor = d_slot["最大阻挡数"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["最大阻挡数"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["攻击间隔"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["攻击间隔"]
+            if d_slot["中文代号"] and d_slot["攻击间隔"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["攻击间隔"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "攻击速度"
-                id_tempor = d_slot["攻击间隔"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["攻击间隔"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["生命上限"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["生命上限"]
+            if d_slot["中文代号"] and d_slot["生命上限"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["生命上限"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "生命上限"
-                id_tempor = d_slot["生命上限"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["生命上限"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["攻击值"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["攻击值"]
+            if d_slot["中文代号"] and d_slot["攻击值"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["攻击值"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "攻击力"
-                id_tempor = d_slot["攻击值"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["攻击值"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["防御值"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["防御值"]
+            if d_slot["中文代号"] and d_slot["防御值"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["防御值"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "防御力"
-                id_tempor = d_slot["防御值"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["防御值"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["法术抗性"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["法术抗性"]
+            if d_slot["中文代号"] and d_slot["法术抗性"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["法术抗性"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "法术抗性"
-                id_tempor = d_slot["法术抗性"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["法术抗性"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["稀有度"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["稀有度"]
+            if d_slot["中文代号"] and d_slot["稀有度"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["稀有度"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "星级"
-                id_tempor = d_slot["稀有度"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["稀有度"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["是否限定"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["是否限定"]
+            if d_slot["中文代号"] and d_slot["是否限定"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["是否限定"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "限定情况"
-                id_tempor = d_slot["是否限定"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["是否限定"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
-            if d_slot["代号-中文"] and d_slot["上线时间"]:
-                id_tempor = d_slot["代号-中文"] + "&" + d_slot["上线时间"]
+            if d_slot["中文代号"] and d_slot["上线时间"]:
+                id_tempor = d_slot["中文代号"] + "&" + d_slot["上线时间"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "上线时间"
-                id_tempor = d_slot["上线时间"] + "&" + d_slot["代号-中文"]
+                id_tempor = d_slot["上线时间"] + "&" + d_slot["中文代号"]
                 if id_tempor not in dict_relation.keys():
                     dict_relation[id_tempor] = "干员代号"
 
             # 拆分关系处理
-            if d_slot["代号-中文"] and d_slot["特性"]:
+            if d_slot["中文代号"] and d_slot["特性"]:
                 for i in d_slot["特性"]:
-                    id_tempor = d_slot["代号-中文"] + "&" + i
+                    id_tempor = d_slot["中文代号"] + "&" + i
                     if id_tempor not in dict_relation.keys():
                         dict_relation[id_tempor] = "特性"
-                    id_tempor = i + "&" + d_slot["代号-中文"]
+                    id_tempor = i + "&" + d_slot["中文代号"]
                     if id_tempor not in dict_relation.keys():
                         dict_relation[id_tempor] = "特性"
 
-            if d_slot["代号-中文"] and d_slot["能力标签"]:
+            if d_slot["中文代号"] and d_slot["能力标签"]:
                 for i in d_slot["能力标签"]:
-                    id_tempor = d_slot["代号-中文"] + "&" + i
+                    id_tempor = d_slot["中文代号"] + "&" + i
                     if id_tempor not in dict_relation.keys():
                         dict_relation[id_tempor] = "能力标签"
-                    id_tempor = i + "&" + d_slot["代号-中文"]
+                    id_tempor = i + "&" + d_slot["中文代号"]
                     if id_tempor not in dict_relation.keys():
                         dict_relation[id_tempor] = "能力标签"
 
-            if d_slot["代号-中文"] and d_slot["活跃领域"]:
+            if d_slot["中文代号"] and d_slot["活跃领域"]:
                 for i in d_slot["活跃领域"]:
-                    id_tempor = d_slot["代号-中文"] + "&" + i
+                    id_tempor = d_slot["中文代号"] + "&" + i
                     if id_tempor not in dict_relation.keys():
                         dict_relation[id_tempor] = "活跃领域"
-                    id_tempor = i + "&" + d_slot["代号-中文"]
+                    id_tempor = i + "&" + d_slot["中文代号"]
                     if id_tempor not in dict_relation.keys():
                         dict_relation[id_tempor] = "活跃领域"
 
-            if d_slot["代号-中文"] and d_slot["潜能"]:
+            if d_slot["中文代号"] and d_slot["潜能"]:
                 for i in d_slot["潜能"]:
-                    id_tempor = d_slot["代号-中文"] + "&" + i
+                    id_tempor = d_slot["中文代号"] + "&" + i
                     if id_tempor not in dict_relation.keys():
                         dict_relation[id_tempor] = "潜能"
-                    id_tempor = i + "&" + d_slot["代号-中文"]
+                    id_tempor = i + "&" + d_slot["中文代号"]
                     if id_tempor not in dict_relation.keys():
                         dict_relation[id_tempor] = "潜能"
 
