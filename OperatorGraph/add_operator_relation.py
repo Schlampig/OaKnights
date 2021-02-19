@@ -70,7 +70,7 @@ def add_operator_relation(load_entity, load_relation, load_cp, save_relation):
 
     print("示例4：查找干员A与干员B之间的最短路径：")
     print("格式：MATCH path=shortestpath((n:中文代号)-[r:`活跃领域`|" + print_type + "*]->(m:中文代号)) WHERE n.name=\"A\" AND m.name=\"B\" RETURN path")
-    print("A=温蒂，B=初雪：MATCH path=shortestpath((n:中文代号)-[r:`活跃领域`|" + print_type + "*]->(m:中文代号)) WHERE n.name=\"星熊\" AND m.name=\"塞雷娅\" RETURN path")
+    print("A=温蒂，B=初雪：MATCH path=shortestpath((n:中文代号)-[r:`活跃领域`|" + print_type + "*]->(m:中文代号)) WHERE n.name=\"温蒂\" AND m.name=\"初雪\" RETURN path")
     print()
 
     print("灵活配置脚本，探索更灵活的查询结果吧！")
