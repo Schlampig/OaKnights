@@ -31,7 +31,6 @@
 - 相关库的版本如下：
   - TODO
 
-
 ### 2 获取干员名单
 运行脚本[get_operator_info.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/get_operator_info.py)的方法**crawl_list_page**将[干员一览](http://prts.wiki/w/%E5%B9%B2%E5%91%98%E4%B8%80%E8%A7%88)页面爬取下来；接着，使用方法**parser_list_page**解析该页面，获得干员代号清单。注意，原始的干员一览页面仅显示前50名干员，此处应在下拉列表选择“每页显示500干员”，这样就能一次处理完毕。等游戏干员总数超过500时，我们再更新脚本。
 
@@ -41,17 +40,17 @@
 ### 4 获取干员基本信息
 以干员“温蒂”为例，运行脚本[get_operator_info.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/get_operator_info.py)的方法**crawl_operator_info**下载干员的[可编辑页面](http://prts.wiki/index.php?title=%E6%B8%A9%E8%92%82&action=edit)，**crawl_operator_voice**方法下载干员的[语音文本页面](http://prts.wiki/w/%E6%B8%A9%E8%92%82/%E8%AF%AD%E9%9F%B3%E8%AE%B0%E5%BD%95)；接着，使用**parser_operator_info**和**parser_operator_voice**方法分别对这两个页面的内容进行提取；为方便处理，使用**check_single_operator**直接调用以上两个方法获得温蒂干员的所有信息；为一次获取所有干员的信息，结合在第2步获得的干员清单，使用**check_all_operator**方法批量处理所有干员信息；最后，所有获得的干员信息以.json格式存储在名为[operator_all.json](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_all.json)的文档中。为了方便查看运行效果，可以使用**json2csv**方法将operator_all.json转换为表格文档[operator_all.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_all.csv)。
 
-### 5 设计干员关系三元组图谱（该使用哪些关系连接干员）
-这是正文
+### 5 设计干员图谱关系三元组列表（该使用哪些关系连接干员）
+虽然得到干员信息，但要构建一个全面的干员网络，需要知道干员之间的信息是如何连接的。知识图谱中采用实体与关系来表示结构化信息，对应为网络的节点与边。在绘制图谱之前，我们使用三元组来定义好需要用到的实体类型与关系类型。一个三元组的结构为(头实体，关系，尾实体)，表示头实体->关系->尾实体。将这样的三元组罗列出，得到[方舟干员图谱关系三元组列表](https://github.com/Schlampig/OaKnights/blob/main/OperatorSchema/%E6%96%B9%E8%88%9F%E5%B9%B2%E5%91%98%E5%9B%BE%E8%B0%B1%E5%85%B3%E7%B3%BB%E4%B8%89%E5%85%83%E7%BB%84%E5%88%97%E8%A1%A8_20210218.xlsx)。
 
-### 6 将干员信息转存为实体与关系，存放在csv文件中
-这是正文
+### 6 生成干员信息三元组
+根据方舟干员图谱关系三元组列表及operator_all.json中的所有干员信息，使用脚本[build_operator_net.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/build_operator_net.py)中的**get_entity_and_relation**方法，将这些结构化信息转化为两张新的.csv格式表格：干员关系三元组表[operator_relation.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_relation.csv)和干员实体三元组表[operator_entity.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_entity.csv)。
 
-### 7 新增干员人际关系图谱（开issue补充cp）
-这是正文
+### 7 新增干员人际关系图谱
+等等，我们似乎遗漏了一个非常重要但在Wiki里没有的干员信息，那就是干员之间的人际关系。这个关系的难点在于，并非静态，而且对于不同玩家，心中承认的关系也各不相同。于是我们单独建立一张CP表，并利用脚本[add_operator_relation.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/add_operator_relation.py)将这张表中的内容补充到operator_relation.csv中，得到完整的干员关系三元组表[operator_relation_cp.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_relation_cp.csv)。此处CP表中只列出了很少的一部分关系（大部分遵从游戏原设），为了使泰拉大陆的人们联系得更紧密，欢迎大家在Issue中留言补充干员关系，随着版本迭代，会选取新关系加入。
 
-### 8 将文件导入neo4j图谱
-这是正文
+### 8 生成干员可视化网络
+将operator_entity.csv与operator_relation_cp.csv（如果你不想加入干员关系，也可以将其替换为operator_relation.csv）
 
 ### 9 使用图谱的查询语句，查询感兴趣的内容
 这是正文
