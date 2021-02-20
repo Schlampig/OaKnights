@@ -1,4 +1,5 @@
 # 干员图
+*by KuyiKing*
 
 > 这个小课题将来自[明日方舟中文Wiki](http://prts.wiki/w/%E9%A6%96%E9%A1%B5)的干员数据可视化，以图谱形式呈现，并可对生成的图谱进行一些点与边的查询操作。
 
@@ -7,19 +8,19 @@
 ## 效果
 
 ### 查看干员“刻刀”的所有信息
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_1.png" height=50% width=50% />
+<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_01.png" height=50% width=50% />
 
 ### 找出不同星座的代表干员？
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_2.png" height=50% width=50% />
+<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_02.png" height=50% width=50% />
 
 ### 哪些干员的种族是萨卡兹？
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_3.png" height=50% width=50% />
+<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_03.png" height=50% width=50% />
 
 ### 干员“温蒂”与干员“初雪”的人际关联是？
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_4.png" height=50% width=50% />
+<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_04.png" height=50% width=50% />
 
 ### 俯瞰泰拉大陆全势力图谱
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_0.png" height=50% width=50% />
+<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_00.png" height=50% width=50% />
 
 ---
 ## 步骤
@@ -28,8 +29,10 @@
 - 该课题的全部代码使用[Python](https://www.python.org/)脚本语言编写，在命令行运行。
 - 解析网络文件时使用了[BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)库。
 - 使用[Neo4j](https://neo4j.com/)图数据库展示最终的网络。
-- 相关库的版本如下：
-  - TODO
+- 相关软件版本如下：
+  - Python 3.6.2
+  - Neo4j 3.5.5(community)
+  - BeautifulSoup4 4.5.3
 
 ### 2 获取干员名单
 运行脚本[get_operator_info.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/get_operator_info.py)的方法**crawl_list_page**将[干员一览](http://prts.wiki/w/%E5%B9%B2%E5%91%98%E4%B8%80%E8%A7%88)页面爬取下来；接着，使用方法**parser_list_page**解析该页面，获得干员代号清单。注意，原始的干员一览页面仅显示前50名干员，此处应在下拉列表选择“每页显示500干员”，这样就能一次处理完毕。等游戏干员总数超过500时，我们再更新脚本。
@@ -81,8 +84,13 @@ INFO  Remote interface available at http://localhost:7474/
 - 第一次可能需要设置密码，按喜好来就好。
 - 将脚本[add_operator_relation.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/add_operator_relation.py)中生成的示例查询语句复制粘贴到界面代码框中，运行即可。
 - 尝试更改查询语句，查看不同的匹配结果。
-
+<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_05.png" height=50% width=50% />
 
 ---
 ## 更新截点
 2021年2月18日，干员信息更新至[画中人](http://prts.wiki/w/%E7%94%BB%E4%B8%AD%E4%BA%BA)活动。
+
+---
+## 注意
+- 该课题仅供爱好者学习、交流，禁止商用！
+- 转载请注明原作者，并附出处链接。
