@@ -50,11 +50,39 @@
 等等，我们似乎遗漏了一个非常重要但在Wiki里没有的干员信息，那就是干员之间的人际关系。这个关系的难点在于，并非静态，而且对于不同玩家，心中承认的关系也各不相同。于是我们单独建立一张CP表，并利用脚本[add_operator_relation.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/add_operator_relation.py)将这张表中的内容补充到operator_relation.csv中，得到完整的干员关系三元组表[operator_relation_cp.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_relation_cp.csv)。此处CP表中只列出了很少的一部分关系（大部分遵从游戏原设），为了使泰拉大陆的人们联系得更紧密，欢迎大家在Issue中留言补充干员关系，随着版本迭代，会选取新关系加入。
 
 ### 8 生成干员可视化网络
-将operator_entity.csv与operator_relation_cp.csv（如果你不想加入干员关系，也可以将其替换为operator_relation.csv）
+将operator_entity.csv与operator_relation_cp.csv（如果你不想加入干员关系，也可以使用operator_relation.csv）导入Neo4j库中。导入流程如下：
+- 解压neo4j压缩包
+- 进入neo4j压缩包
+- 清空压缩包中原本的图谱（也可以设置添加新图谱，这里为求简单直接删除原图谱），注意rm算法用法。
+```bash
+cd data/databases/graph.db/
+rm -rf *
+```
+- 进入bin路径下
+```bash
+cd ../../../bin/
+```
+- 导入两个.csv文件
+```bash
+./neo4j-import -into /your_path/neo4j-community-3.5.5/data/databases/graph.db/ --nodes /Users/schwein/neo4j-data/operator_entity.csv --relationships /Users/schwein/neo4j-data/operator_relation_cp.csv --ignore-duplicate-nodes=true --ignore-missing-nodes=true
+```
+- 导入成功
 
-### 9 使用图谱的查询语句，查询感兴趣的内容
-这是正文
+### 9 启动图谱，查询自己感兴趣的内容
+- 在bin文件中，启动图谱：
+```bash
+./neo4j console
+```
+- 启动顺利的话，会看见命令行出现形如下示的一句话：
+```bash
+INFO  Remote interface available at http://localhost:7474/
+```
+- 在浏览器中打开http://localhost:7474/
+- 第一次可能需要设置密码，按喜好来就好。
+- 将脚本[add_operator_relation.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/add_operator_relation.py)中生成的示例查询语句复制粘贴到界面代码框中，运行即可。
+- 尝试更改查询语句，查看不同的匹配结果。
+
 
 ---
 ## 更新截点
-更新至画中人活动
+2021年2月18日，干员信息更新至[画中人](http://prts.wiki/w/%E7%94%BB%E4%B8%AD%E4%BA%BA)活动。
