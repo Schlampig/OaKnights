@@ -1,8 +1,8 @@
 # OaKnights
 *by KuyiKing*
 
-> 这里存放着基于游戏[明日方舟](https://ak.hypergryph.com/index)的种种趣味小代码 : )
-> Interesting trials and trifles on the game [Arknights](https://ak.hypergryph.com/index) : )
+> * 这里存放着基于游戏[明日方舟](https://ak.hypergryph.com/index)的种种趣味小代码 : )
+> * Interesting trials and trifles on the game [Arknights](https://ak.hypergryph.com/index) : )
 
 
 ## 罗德岛猫爬架(已完成课题)
