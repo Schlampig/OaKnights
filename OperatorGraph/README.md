@@ -54,14 +54,14 @@
 
 ### 8 生成干员可视化网络
 将operator_entity.csv与operator_relation_cp.csv（如果你不想加入干员关系，也可以使用operator_relation.csv）导入Neo4j库中。导入流程如下：
-- 解压neo4j压缩包
-- 进入neo4j压缩包
-- 清空压缩包中原本的图谱（也可以设置添加新图谱，这里为求简单直接删除原图谱），注意rm算法用法。
+- 解压Neo4j压缩包
+- 进入Neo4j压缩包
+- 清空压缩包中原本的图谱（也可以设置添加新图谱，这里为求简单直接删除原图谱），**注意rm算法的用法**。
 ```bash
 cd data/databases/graph.db/
 rm -rf *
 ```
-- 进入bin路径下
+- 进入/bin路径下
 ```bash
 cd ../../../bin/
 ```
@@ -72,7 +72,7 @@ cd ../../../bin/
 - 导入成功
 
 ### 9 启动图谱，查询自己感兴趣的内容
-- 在bin文件中，启动图谱：
+- 在/bin路径下启动图谱：
 ```bash
 ./neo4j console
 ```
