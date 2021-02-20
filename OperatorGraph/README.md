@@ -21,6 +21,7 @@
 ### 俯瞰泰拉大陆全势力图谱
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_00.png" height=50% width=50% /></center>
 
+注：[无法显示图片的处理方式](https://www.freesion.com/article/6107785191/)。
 
 ## 步骤
 
