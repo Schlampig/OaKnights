@@ -7,19 +7,19 @@
 ## 效果
 
 ### 查看干员“刻刀”的所有信息
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_01.png" height=25% width=25% />
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_01.png" height=35% width=35% /></center>
 
 ### 找出不同星座的代表干员？
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_02.png" height=25% width=25% />
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_02.png" height=35% width=35% /></center>
 
 ### 哪些干员的种族是萨卡兹？
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_03.png" height=25% width=25% />
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_03.png" height=35% width=35% /></center>
 
 ### 干员“温蒂”与干员“初雪”的人际关联是？
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_04.png" height=25% width=25% />
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_04.png" height=35% width=35% /></center>
 
 ### 俯瞰泰拉大陆全势力图谱
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_00.png" height=25% width=25% />
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_00.png" height=50% width=50% /></center>
 
 
 ## 步骤
@@ -83,7 +83,7 @@ INFO  Remote interface available at http://localhost:7474/
 - 第一次可能需要设置密码，按喜好来就好。
 - 将脚本[add_operator_relation.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/add_operator_relation.py)中生成的示例查询语句复制粘贴到界面代码框中，运行即可。
 - 尝试更改查询语句，查看不同的匹配结果。
-<img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_05.png" height=25% width=25% />
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_05.png" height=50% width=50% /></center>
 
 
 ## 更新截点
