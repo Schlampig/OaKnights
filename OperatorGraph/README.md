@@ -3,7 +3,6 @@
 
 > 这个小课题将来自[明日方舟中文Wiki](http://prts.wiki/w/%E9%A6%96%E9%A1%B5)的干员数据可视化，以图谱形式呈现，并可对生成的图谱进行一些点与边的查询操作。
 
----
 
 ## 效果
 
@@ -22,7 +21,7 @@
 ### 俯瞰泰拉大陆全势力图谱
 <img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_00.png" height=50% width=50% />
 
----
+
 ## 步骤
 
 ### 1 配置环境
@@ -86,11 +85,13 @@ INFO  Remote interface available at http://localhost:7474/
 - 尝试更改查询语句，查看不同的匹配结果。
 <img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_05.png" height=50% width=50% />
 
----
+
 ## 更新截点
 2021年2月18日，干员信息更新至[画中人](http://prts.wiki/w/%E7%94%BB%E4%B8%AD%E4%BA%BA)活动。
 
----
+
 ## 注意
 - 该课题仅供爱好者学习、交流，禁止商用！
 - 转载请注明原作者，并附出处链接。
+
+---
