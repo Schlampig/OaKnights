@@ -24,7 +24,7 @@
 注：[无法显示图片的处理方式](https://www.freesion.com/article/6107785191/)。
 
 ## 步骤
-注：如果想直接体验图谱，可以从第8步看起，前面的数据均可在[RelateData](https://github.com/Schlampig/OaKnights/tree/main/RelateData)路径下获取。
+注：如果想直接体验图谱，可以从[第8步](#quick_link)看起，前面的数据均可在[RelateData](https://github.com/Schlampig/OaKnights/tree/main/RelateData)路径下获取。
 
 ### 1 配置环境
 - 该课题的全部代码使用[Python](https://www.python.org/)脚本语言编写，在命令行运行。
@@ -53,7 +53,7 @@
 ### 7 新增干员人际关系图谱
 等等，我们似乎遗漏了一个非常重要但在Wiki里没有的干员信息，那就是干员之间的人际关系。这个关系的难点在于，并非静态，而且对于不同玩家，心中承认的关系也各不相同。于是我们单独建立一张[CP表](https://github.com/Schlampig/OaKnights/blob/main/OperatorSchema/operator_cp.xlsx)，并利用脚本[add_operator_relation.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/add_operator_relation.py)将这张表中的内容补充到operator_relation.csv中，得到完整的干员关系三元组表[operator_relation_cp.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_relation_cp.csv)。此处CP表中只列出了很少的一部分关系（大部分遵从游戏原设），为了使泰拉大陆的人们联系得更紧密，欢迎大家在[Issue](https://github.com/Schlampig/OaKnights/issues/1)中留言补充干员关系，随着版本迭代，会选取新关系加入。
 
-### 8 生成干员可视化网络
+### <span id="quick_link">8 生成干员可视化网络</span>
 将operator_entity.csv与operator_relation_cp.csv（如果你不想加入干员关系，也可以使用operator_relation.csv）导入Neo4j库中。导入流程如下：
 - 解压Neo4j压缩包
 - 进入Neo4j压缩包
