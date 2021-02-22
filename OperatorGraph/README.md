@@ -24,6 +24,7 @@
 注：[无法显示图片的处理方式](https://www.freesion.com/article/6107785191/)。
 
 ## 步骤
+注：如果想直接体验图谱，可以从第8步看起，前面的数据均可在[RelateData](https://github.com/Schlampig/OaKnights/tree/main/RelateData)路径下获取。
 
 ### 1 配置环境
 - 该课题的全部代码使用[Python](https://www.python.org/)脚本语言编写，在命令行运行。
