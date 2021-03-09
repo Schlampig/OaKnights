@@ -17,11 +17,11 @@
 ### 1 配置环境
 - 该课题的全部代码使用[Python](https://www.python.org/)脚本语言编写，在命令行运行。
 - 使用[ElasticSearch](https://www.elastic.co/cn/elasticsearch/)（下文简称ES）搜索服务器存储并检索数据。
-- 使用[elasticsearch](https://pypi.org/project/elasticsearch/)库使得Python脚本能调用ES服务。
+- 使用[python-elasticsearch](https://pypi.org/project/elasticsearch/)库使得Python脚本能调用ES服务。
 - 相关软件版本如下：
   - Python 3.6.2
   - ElasticSearch 7.10.0
-  - elasticsearch 7.10.0
+  - python-elasticsearch 7.10.0
 
 ### 2 获取干员信息数据
 直接使用[干员图](https://github.com/Schlampig/OaKnights/tree/main/OperatorGraph)项目中获取到的干员信息数据文件[operator_all.json](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_all.json)。
@@ -49,11 +49,25 @@ entry = [{"person": string, "prefix": string, "content": string}, ...]
 ### 5 启动ElasticSearch
 在该课题中，ES用于存储上一步构建的待入库词条，并提供高速检索、匹配算法，便于根据用户输入的文本查询入库词条并返回答案。要将es_data.json的数据（也就是entry）存入ES，首先应开启ES服务，步骤如下：
 - 下载并解压ES压缩包elasticsearch-7.10.0
-- 进入elasticsearch-7.10.0压缩包
+- 该步可选：修改路径权限
+```bash
+chmod –R 777 elasticsearch-7.10.0
+```
+- 到[这里](https://github.com/medcl/elasticsearch-analysis-ik)下载中文分词插件包ik
+- 进入elasticsearch-7.10.0压缩包（以下操作均在该路径下）
 ```bash
 cd elasticsearch-7.10.0
 ```
-- 在压缩包的config路径下，修改配置文件，设置调用ES服务的接口。使用nano或vim指令打开.yml文件，在其中找到**http.port:xxxx**，在其后输入自定义接口号即可：
+- 在plugins路径下创建文件夹ik，将下载的ik插件包放于该文件夹下解压：
+```bash
+cd /plugins/ik/
+```
+- 进入plugins路径，查看并删除隐藏文件（有时候不删除会导致运行时插件properties文件报错）：
+```bash
+ls -al
+rm -rf 隐藏文件
+```
+- 在压缩包的config路径下，修改配置文件，设置调用ES服务的接口。使用nano或vim指令打开.yml文件，在其中找到**http.port:xxxx**，在其后输入自定义接口号即可，注意去掉#号令设置生效：
 ```bash
 nano elasticsearch.yml
 ```
@@ -61,9 +75,15 @@ nano elasticsearch.yml
 ```bash
 ./bin/elasticsearch
 ```
-- 附：入库ES的数据起始存放在以下路径，该课题数据量不大，因此使用一个节点存放。进阶内容请查阅ES官网了解：
+- 附1：入库ES的数据起始存放在以下路径，该课题数据量不大，因此使用一个节点存放。进阶内容请查阅ES官网了解：
 ```bash
 cd ./data/nodes/0/indices/具体index名（通常为数字字母序列）
+```
+- 附2：Python调用ES脚本：
+```
+from elasticsearch import Elasticsearch
+es = Elasticsearch([{“host”:”localhost”, “port”:自定义接口号}])
+
 ```
 
 ### 6 数据入库
