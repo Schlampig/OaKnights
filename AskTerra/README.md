@@ -54,7 +54,7 @@ entry = [{"person": string, "prefix": string, "content": string}, ...]
 chmod –R 777 elasticsearch-7.10.0
 ```
 - 到[这里](https://github.com/medcl/elasticsearch-analysis-ik)下载中文分词插件包ik
-- 进入elasticsearch-7.10.0压缩包（以下操作均在该路径下）
+- 进入elasticsearch-7.10.0压缩包（接下来的操作均在该路径下进行）
 ```bash
 cd elasticsearch-7.10.0
 ```
