@@ -13,7 +13,6 @@
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/xxx.png" height=35% width=35% /></center>
 
 ## 步骤
-注：如果想直接体验问答内容，可以从[第x步](#quick_link)看起，前面的数据均可在[RelateData](https://github.com/Schlampig/OaKnights/tree/main/RelateData)路径下获取。
 
 ### 1 配置环境
 - 该课题的全部代码使用[Python](https://www.python.org/)脚本语言编写，在命令行运行。
@@ -31,9 +30,9 @@
 原始解包数据来自[这里](https://github.com/Dimbreath/ArknightsData)，该课题只用到zh-CN下的数据。运行脚本[clean_data.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/clean_data.py)的方法**parser_all**将主剧情、活动剧情、悖论模拟的对话正文和剧情概述提取、整理再存储至文件[story_raw.json](https://github.com/Schlampig/OaKnights/blob/main/RelateData/story_raw.json)（请留意脚本中原始文件的存放路径，可根据实际情况修改）。
 
 ### 4 构建入库数据
-运行脚本[prepare_data.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/prepare_data.py)中的**get_operator_info**和**get_story_info**分别处理干员信息数据集operator_all.json和游戏剧本数据集story_raw.json。数据格式统一为：
+运行脚本[prepare_data.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/prepare_data.py)中的**get_operator_info**和**get_story_info**方法分别处理干员信息数据集operator_all.json和游戏剧本数据集story_raw.json。数据格式统一为：
 ```
-data_all = [{"person": string, "prefix": string, "content": string}, ...]
+entry = [{"person": string, "prefix": string, "content": string}, ...]
 ```
 其中，数据以列表结构存储，列表每一项表示入库的一则词条（或称answer）。每个词条是字典结构，其中person为该词条正文出现的干员名称，prefix为对该词条的描述，content为该词条的正文。例如下面示例的这几个词条：
 ```
@@ -44,45 +43,37 @@ data_all = [{"person": string, "prefix": string, "content": string}, ...]
 {'content': '你说是吧。', 'person': 'W', 'prefix': '在活动的level_act9d0_st01章节，W曾说：'}
 {'content': '塔露拉。', 'person': 'W', 'prefix': '在活动的level_act9d0_st01章节，W曾说：'}
 ```
-最终，包含所有词条的data_all存为es_data.json文档，由于这个文档超过25MB，且能快速生成，因而未放在该课题中。
+在处理干员基本信息数据时，还使用一个列表lst_person存储下“登场”干员的中文代号。
+最终，包含所有词条的entry和干员代号列表lst_person一并存入es_data.json文档，由于这个文档超过25MB，且能快速生成，因而未放在该课题中。
 
 ### 5 启动ElasticSearch
-在该课题中，ES用于存储上一步构建的待入库词条，并提供高速检索、匹配算法，便于根据用户输入的文本查询入库词条并返回答案。要将es_data.json的数据（也就是data_all）存入ES，首先应开启ES服务，步骤如下：
+在该课题中，ES用于存储上一步构建的待入库词条，并提供高速检索、匹配算法，便于根据用户输入的文本查询入库词条并返回答案。要将es_data.json的数据（也就是entry）存入ES，首先应开启ES服务，步骤如下：
 - 下载并解压ES压缩包elasticsearch-7.10.0
 - 进入elasticsearch-7.10.0压缩包
 ```bash
 cd elasticsearch-7.10.0
 ```
+- 在压缩包的config路径下，修改配置文件，设置调用ES服务的接口。使用nano或vim指令打开.yml文件，在其中找到**http.port:xxxx**，在其后输入自定义接口号即可：
+```bash
+nano elasticsearch.yml
+```
 - 在压缩包的bin路径下启动ES
 ```bash
 ./bin/elasticsearch
 ```
-- 若
-
-### 6 生成干员信息三元组
-根据方舟干员图谱关系三元组列表及operator_all.json中的所有干员信息，使用脚本[build_operator_net.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/build_operator_net.py)中的**get_entity_and_relation**方法，将这些结构化信息转化为两张新的.csv格式表格：干员关系三元组表[operator_relation.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_relation.csv)和干员实体三元组表[operator_entity.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_entity.csv)。
-
-### 7 新增干员人际关系图谱
-等等，我们似乎遗漏了一个非常重要但在Wiki里没有的干员信息，那就是干员之间的人际关系。这个关系的难点在于，并非静态，而且对于不同玩家，心中承认的关系也各不相同。于是我们单独建立一张[CP表](https://github.com/Schlampig/OaKnights/blob/main/OperatorSchema/operator_cp.xlsx)，并利用脚本[add_operator_relation.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/add_operator_relation.py)将这张表中的内容补充到operator_relation.csv中，得到完整的干员关系三元组表[operator_relation_cp.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_relation_cp.csv)。此处CP表中只列出了很少的一部分关系（大部分遵从游戏原设），为了使泰拉大陆的人们联系得更紧密，欢迎大家在[Issue](https://github.com/Schlampig/OaKnights/issues/1)中留言补充干员关系，随着版本迭代，会选取新关系加入。
-
-### <span id="quick_link">8 生成干员可视化网络</span>
-将operator_entity.csv与operator_relation_cp.csv（如果你不想加入干员关系，也可以使用operator_relation.csv）导入Neo4j库中。导入流程如下：
-- 解压Neo4j压缩包
-- 进入Neo4j压缩包
-- 清空压缩包中原本的图谱（也可以设置添加新图谱，这里为求简单直接删除原图谱），**注意rm算法的用法**。
+- 附：入库ES的数据起始存放在以下路径，该课题数据量不大，因此使用一个节点存放。进阶内容请查阅ES官网了解：
 ```bash
-cd data/databases/graph.db/
-rm -rf *
+cd ./data/nodes/0/indices/具体index名（通常为数字字母序列）
 ```
-- 进入/bin路径下
-```bash
-cd ../../../bin/
-```
-- 导入两个.csv文件
-```bash
-./neo4j-import -into /your_path/neo4j-community-3.5.5/data/databases/graph.db/ --nodes /Users/schwein/neo4j-data/operator_entity.csv --relationships /Users/schwein/neo4j-data/operator_relation_cp.csv --ignore-duplicate-nodes=true --ignore-missing-nodes=true
-```
-- 导入成功
+
+### 6 数据入库
+在[es.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/es.py)脚本中构建**ES**类，其中的**load**方法用来载入es_data.py内数据，**es_build**方法用于设置ES入库规则并将数据入库（注意在入库规则中设置分词器，便于后续查找）。第一次入库时间较慢，用该代码入库130000词条约需半小时（[提速方案](https://www.easyice.cn/archives/207)与[提速方案](https://blog.csdn.net/weixin_39198406/article/details/82983256)供参考）。查询时，可以通过设置*re_build*参数为False，表示使用当前数据，不需重新入库。
+
+### 7 数据检索
+ES使用基于BM25的方案进行全图检索。[es.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/es.py)中的方法**es_search**设定了一套if-else规则：如果用户输入的问题中未检测到干员中文代码，则使用简单的内容查找规则；否则，将查找范围限定在与当前干员相关的内容。最后，方法**run**用于处理用户输入问题（即query）并返回查找的前K个结果（即answer）。
+
+### 8 命令行交互脚本
+最后，课题将通过命令行形式与用户交互，即运行程序后，用户输入任意文本（即query），算法根据用户输入去ES库全文检索找到前K个最符合结果的答案（即answer）反馈回来。[ask.py]()
 
 ### 9 启动图谱，查询自己感兴趣的内容
 - 在/bin路径下启动图谱：
