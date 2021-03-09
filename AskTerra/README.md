@@ -44,7 +44,7 @@ entry = [{"person": string, "prefix": string, "content": string}, ...]
 {'content': '塔露拉。', 'person': 'W', 'prefix': '在活动的level_act9d0_st01章节，W曾说：'}
 ```
 在处理干员基本信息数据时，还使用一个列表lst_person存储下“登场”干员的中文代号。
-最终，包含所有词条的entry和干员代号列表lst_person一并存入es_data.json文档，由于这个文档超过25MB，且能快速生成，因而未放在该课题中。
+最终，包含所有词条的entry和干员代号列表lst_person一并存入es_data.json文档，由于这个文档超过15MB，且能快速生成，因而未放在该课题中。
 
 ### 5 启动ElasticSearch
 在该课题中，ES用于存储上一步构建的待入库词条，并提供高速检索、匹配算法，便于根据用户输入的文本查询入库词条并返回答案。要将es_data.json的数据（也就是entry）存入ES，首先应开启ES服务，步骤如下：
@@ -88,7 +88,7 @@ es = Elasticsearch([{“host”:”localhost”, “port”:自定义接口号}]
 ```
 
 ### 6 数据入库
-在[es.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/es.py)脚本中构建**ES**类，其中的**load**方法用来载入es_data.py内数据，**es_build**方法用于设置ES入库规则并将数据入库（注意在入库规则中设置分词器，便于后续查找）。第一次入库时间较慢，用该代码入库130000词条约需半小时（[提速方案](https://www.easyice.cn/archives/207)与[提速方案](https://blog.csdn.net/weixin_39198406/article/details/82983256)供参考）。查询时，可以通过设置*re_build*参数为False，表示使用当前数据，不需重新入库。
+在[es.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/es.py)脚本中构建**ES**类，其中的**load**方法用来载入es_data.py内数据，**es_build**方法用于设置ES入库规则并将数据入库（注意在入库规则中设置分词器，便于后续查找）。第一次入库时间较慢，用该代码入库100000词条约需50分钟（[提速方案](https://www.easyice.cn/archives/207)与[提速方案](https://blog.csdn.net/weixin_39198406/article/details/82983256)供参考）。查询时，可以通过设置*re_build*参数为False，表示使用当前数据，不需重新入库。
 
 ### 7 数据检索
 ES使用基于BM25的方案进行全图检索。[es.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/es.py)中的方法**es_search**设定了一套if-else规则：如果用户输入的问题中未检测到干员中文代码，则使用简单的内容查找规则；否则，将查找范围限定在与当前干员相关的内容。最后，方法**run**用于处理用户输入问题（即query）并返回查找的前K个结果（即answer）。
