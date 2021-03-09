@@ -123,7 +123,6 @@ def get_story_info(load_path, lst_person):
                             lst.append(d)
                     else:
                         continue
-                    lst.append(d)
     print("- 提取完成 -")
     return lst
 
@@ -153,7 +152,7 @@ if __name__ == "__main__":
     res = get_all_info(path_operator="operator_all.json",
                        path_story="story_raw.json",
                        num_entry=-1,
-                       is_save=True)
+                       is_save=True)  # 注意这里第一次设True让数据入库，后续可改为False不必重复入库占用时间
     pprint(res["entry"][:5]+res["entry"][-5:])
     print()
     print("- 共得到{}条数据。 -".format(len(res["entry"])))
