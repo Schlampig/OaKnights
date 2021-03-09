@@ -60,7 +60,9 @@ cd elasticsearch-7.10.0
 ```
 - 在plugins路径下创建文件夹ik，将下载的ik插件包放于该文件夹下解压：
 ```bash
-cd /plugins/ik/
+cd /plugins/
+mkdir ik
+cd /plugins/ik/把ik压缩包放这里再解压
 ```
 - 进入plugins路径，查看并删除隐藏文件（有时候不删除会导致运行时插件properties文件报错）：
 ```bash
