@@ -73,26 +73,18 @@ cd ./data/nodes/0/indices/具体index名（通常为数字字母序列）
 ES使用基于BM25的方案进行全图检索。[es.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/es.py)中的方法**es_search**设定了一套if-else规则：如果用户输入的问题中未检测到干员中文代码，则使用简单的内容查找规则；否则，将查找范围限定在与当前干员相关的内容。最后，方法**run**用于处理用户输入问题（即query）并返回查找的前K个结果（即answer）。
 
 ### 8 命令行交互脚本
-最后，课题将通过命令行形式与用户交互，即运行程序后，用户输入任意文本（即query），算法根据用户输入去ES库全文检索找到前K个最符合结果的答案（即answer）反馈回来。[ask.py]()
+最后，课题将通过命令行形式与用户交互，即运行程序后，用户输入任意文本（即query）并回车，算法根据用户输入去ES库全文检索找到前K个最符合结果的答案（即answer）反馈回来。[ask.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/ask.py)使用一个循环来保持交互始终进行，若希望终止问答，用户只需输入“所有苦难都结束了”即可。
 
-### 9 启动图谱，查询自己感兴趣的内容
-- 在/bin路径下启动图谱：
+### 9 开始问答吧
+运行[ask.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/ask.py)开始问答体验 :)
 ```bash
-./neo4j console
+python ask.py
 ```
-- 启动顺利的话，会看见命令行出现形如下示的一句话：
-```bash
-INFO  Remote interface available at http://localhost:7474/
-```
-- 在浏览器中打开http://localhost:7474/
-- 第一次可能需要设置密码，按喜好来就好。
-- 将脚本[add_operator_relation.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/add_operator_relation.py)中生成的示例查询语句复制粘贴到界面代码框中，运行即可。
-- 尝试更改查询语句，查看不同的匹配结果。
-<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_og_05.png" height=50% width=50% /></center>
+注：不在干员名单中的角色无法通过人名限定搜索范围，例如塔露拉、霜星等；对于干员信息的检索，以[干员名]的[属性名]作为输入，可以较精准获取想要的信息（不包含未入库的信息，例如干员间的关系）；对于不包含干员信息的检索，算法更可能从剧本正文中摘录句子返回；由于这只是个伪问答系统，出现答非所问完全正常 > <
 
 
 ## 更新截点
-2021年2月18日，干员信息更新至[画中人](http://prts.wiki/w/%E7%94%BB%E4%B8%AD%E4%BA%BA)活动。
+2021年3月9日，干员信息更新至[画中人](http://prts.wiki/w/%E7%94%BB%E4%B8%AD%E4%BA%BA)活动，剧本信息与开发时间点获取的[解包数据](https://github.com/Dimbreath/ArknightsData)同步。
 
 
 ## 注意
