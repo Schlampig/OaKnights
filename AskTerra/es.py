@@ -134,7 +134,7 @@ class ES(object):
 
 if __name__ == "__main__":
     # 测试/入库用
-    es_re = ES(top_k=7, re_build=False)
+    es_re = ES(top_k=7, re_build=False)  # 注意这里第一次设True让数据入库，后续可改为False不必重复入库占用时间
     answers = es_re.run("泰拉这片大地的苦难何时结束")
     for ans in answers:
         print(ans)
