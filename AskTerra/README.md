@@ -17,10 +17,12 @@
 
 ### 1 配置环境
 - 该课题的全部代码使用[Python](https://www.python.org/)脚本语言编写，在命令行运行。
-- 使用[ElasticSearch](https://www.elastic.co/cn/elasticsearch/)搜索服务器存储并检索数据。
+- 使用[ElasticSearch](https://www.elastic.co/cn/elasticsearch/)（下文简称ES）搜索服务器存储并检索数据。
+- 使用[elasticsearch](https://pypi.org/project/elasticsearch/)库使得Python脚本能调用ES服务。
 - 相关软件版本如下：
   - Python 3.6.2
   - ElasticSearch 7.10.0
+  - elasticsearch 7.10.0
 
 ### 2 获取干员信息数据
 直接使用[干员图](https://github.com/Schlampig/OaKnights/tree/main/OperatorGraph)项目中获取到的干员信息数据文件[operator_all.json](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_all.json)。
@@ -33,10 +35,29 @@
 ```
 data_all = [{"person": string, "prefix": string, "content": string}, ...]
 ```
-其中，person为该
+其中，数据以列表结构存储，列表每一项表示入库的一则词条（或称answer）。每个词条是字典结构，其中person为该词条正文出现的干员名称，prefix为对该词条的描述，content为该词条的正文。例如下面示例的这几个词条：
+```
+{'content': '12F的出生日期为：3月3日', 'person': '12F', 'prefix': ''}
+{'content': '12F在任命助理的语音记录中曾用中文说过：抱歉，我能做的事情很有限，也不太会说话，但作为助理感到很荣幸，如果我能帮到博士阁下那就太好了。', 'person': '12F', 'prefix': ''}
+{'content': '12F在交谈1的语音记录中曾用日文说过：ドクター殿。嫌なことはいずれ過ぎ去っていくものです。みなさんはドクター殿を信頼してついてきているのですから、もっと自信をお持ちください。', 'person': '12F', 'prefix': ''}
+{'content': '大人们见到这个医疗箱，也会高兴的！', 'person': '孱弱的孩子', 'prefix': '在活动的level_act9d0_st01章节，孱弱的孩子曾说：'}
+{'content': '你说是吧。', 'person': 'W', 'prefix': '在活动的level_act9d0_st01章节，W曾说：'}
+{'content': '塔露拉。', 'person': 'W', 'prefix': '在活动的level_act9d0_st01章节，W曾说：'}
+```
+最终，包含所有词条的data_all存为es_data.json文档，由于这个文档超过25MB，且能快速生成，因而未放在该课题中。
 
-### 5 数据入库
-。
+### 5 启动ElasticSearch
+在该课题中，ES用于存储上一步构建的待入库词条，并提供高速检索、匹配算法，便于根据用户输入的文本查询入库词条并返回答案。要将es_data.json的数据（也就是data_all）存入ES，首先应开启ES服务，步骤如下：
+- 下载并解压ES压缩包elasticsearch-7.10.0
+- 进入elasticsearch-7.10.0压缩包
+```bash
+cd elasticsearch-7.10.0
+```
+- 在压缩包的bin路径下启动ES
+```bash
+./bin/elasticsearch
+```
+- 若
 
 ### 6 生成干员信息三元组
 根据方舟干员图谱关系三元组列表及operator_all.json中的所有干员信息，使用脚本[build_operator_net.py](https://github.com/Schlampig/OaKnights/blob/main/OperatorGraph/build_operator_net.py)中的**get_entity_and_relation**方法，将这些结构化信息转化为两张新的.csv格式表格：干员关系三元组表[operator_relation.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_relation.csv)和干员实体三元组表[operator_entity.csv](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_entity.csv)。
