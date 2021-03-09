@@ -26,10 +26,14 @@
 直接使用[干员图](https://github.com/Schlampig/OaKnights/tree/main/OperatorGraph)项目中获取到的干员信息数据文件[operator_all.json](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_all.json)。
 
 ### 3 获取游戏剧本数据
-原始解包数据来自[这里](https://github.com/Dimbreath/ArknightsData)，该课题只用到zh-CN下的数据。
+原始解包数据来自[这里](https://github.com/Dimbreath/ArknightsData)，该课题只用到zh-CN下的数据。运行脚本[clean_data.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/clean_data.py)的方法**parser_all**将主剧情、活动剧情、悖论模拟的对话正文和剧情概述提取、整理再存储至文件[story_raw.json](https://github.com/Schlampig/OaKnights/blob/main/RelateData/story_raw.json)（请留意脚本中原始文件的存放路径，可根据实际情况修改）。
 
 ### 4 构建入库数据
-。
+运行脚本[prepare_data.py](https://github.com/Schlampig/OaKnights/blob/main/AskTerra/prepare_data.py)中的**get_operator_info**和**get_story_info**分别处理干员信息数据集operator_all.json和游戏剧本数据集story_raw.json。数据格式统一为：
+```
+data_all = [{"person": string, "prefix": string, "content": string}, ...]
+```
+其中，person为该
 
 ### 5 数据入库
 。
