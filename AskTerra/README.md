@@ -85,7 +85,6 @@ cd ./data/nodes/0/indices/具体index名（通常为数字字母序列）
 ```
 from elasticsearch import Elasticsearch
 es = Elasticsearch([{“host”:”localhost”, “port”:自定义接口号}])
-
 ```
 
 ### 6 数据入库
