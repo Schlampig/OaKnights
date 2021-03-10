@@ -41,16 +41,16 @@
 ```
 
 ### 诗的出处
-<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_00.png" height=35% width=35% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_00.png" height=75% width=75% /></center>
 
 ### 提问干员信息... 
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_01.png" height=35% width=35% /></center>
 
 ### 查找剧本内容...
-<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_03.png" height=35% width=35% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_03.png" height=50% width=50% /></center>
 
 ### 随意搜索...
-<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_02.png" height=35% width=35% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_02.png" height=50% width=50% /></center>
 
 ## 步骤
 
