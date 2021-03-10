@@ -6,11 +6,51 @@
 
 ## 效果
 
-### 提问干员信息
-<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/xxx.png" height=35% width=35% /></center>
+### 关于泰拉，一首诗
+```
+泰拉苏醒，
+这片大地的苦难
+何时结束？
 
-### 查找剧本内容
-<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/xxx.png" height=35% width=35% /></center>
+我们的苦难远未结束。
+来到这片大地上的苦难
+没有尽头。
+
+如果是为了
+减少这片大地上的苦难，
+我相信，连太阳的光芒，
+也愿意
+为我一时颔首。
+
+想想这片大地的样貌。
+这片大地，多么美好……
+
+只要你们还活在
+这片大地上，
+这片大地就
+永无宁日。
+
+我们
+让这片大地重获新生。
+为了
+这片大地能够
+安稳入眠。
+
+所有苦难都结束了，
+泰拉沉睡。
+```
+
+### 诗的出处
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_00.png" height=35% width=35% /></center>
+
+### 提问干员信息... 
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_01.png" height=35% width=35% /></center>
+
+### 查找剧本内容...
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_03.png" height=35% width=35% /></center>
+
+### 随意搜索...
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_at_02.png" height=35% width=35% /></center>
 
 ## 步骤
 
@@ -82,7 +122,7 @@ nano elasticsearch.yml
 cd ./data/nodes/0/indices/具体index名（通常为数字字母序列）
 ```
 - 附2：Python调用ES脚本：
-```
+```python
 from elasticsearch import Elasticsearch
 es = Elasticsearch([{“host”:”localhost”, “port”:自定义接口号}])
 ```
