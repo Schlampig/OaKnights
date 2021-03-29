@@ -13,7 +13,7 @@
 
 ## 可露希尔实验室（待做课题）
 - [ ] CPMatcher
-- [ ] IslandTeller
+- [ ] IslandTalker
 - [ ] ... 
 
 ## 声明
