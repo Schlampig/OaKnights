@@ -68,7 +68,7 @@ cd ../../../bin/
 ```
 - 导入两个.csv文件
 ```bash
-./neo4j-import -into /your_path/neo4j-community-3.5.5/data/databases/graph.db/ --nodes /Users/schwein/neo4j-data/operator_entity.csv --relationships /Users/schwein/neo4j-data/operator_relation_cp.csv --ignore-duplicate-nodes=true --ignore-missing-nodes=true
+./neo4j-import -into /your_path/neo4j-community-3.5.5/data/databases/graph.db/ --nodes /your_path/operator_entity.csv --relationships /your_path/operator_relation_cp.csv --ignore-duplicate-nodes=true --ignore-missing-nodes=true
 ```
 - 导入成功
 
