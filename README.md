@@ -1,6 +1,13 @@
 # OaKnights
 *by KuyiKing*
 
+<br>
+
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+
+<br>
+
 > * 这里存放着基于游戏[明日方舟](https://ak.hypergryph.com/index)的种种趣味小代码 : )
 > * Interesting trials and trifles on the game [Arknights](https://ak.hypergryph.com/index) : )
 
