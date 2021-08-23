@@ -23,6 +23,8 @@
 - [ ] CPMatcher
 - [ ] ... 
 
+## [参(致)考(谢)资(名)料(单)](https://github.com/Schlampig/OaKnights/blob/main/References/README.md)
+
 ## 声明
 - 该项目内容为原创，转载请注明原作者[KuyiKing](https://github.com/Schlampig)，并附链接。
 - 该项目内容仅供爱好者学习、交流，禁止他用！
