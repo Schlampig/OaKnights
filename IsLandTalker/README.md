@@ -57,11 +57,11 @@
 :sweat_smile:为什么不直接在1.4.0甚至更高版本的PyTorch下完成整个模型的训练、运行呢？问得好，因为PyTorch安装得很早，因为懒没升级，所以……有兴趣的朋友不妨试试（应该不会报错，大概吧……）
   
 ### 3 准备数据
-  - 使用[prepro_data.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/prepro_data.py)预处理下载自[解包数据](https://github.com/Dimbreath/ArknightsData)的原始剧情数据，生成[训练文本](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/data/story_train.json)与[验证文本](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/data/story_dev.json)。
+  - 使用[prepro_data.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/prepro_data.py)预处理下载自[解包数据](https://github.com/Dimbreath/ArknightsData)的原始剧情数据，生成[训练文本](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/data/story_train.json)与[验证文本](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/data/story_dev.json)，放到[data](https://github.com/Schlampig/OaKnights/tree/main/IsLandTalker/data)路径下即可。
   - 第一遍运行[oak_train.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/oak_train.py)时,**data2fea**方法会将清洗后的[训练文本](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/data/story_train.json)与[验证文本](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/data/story_dev.json)转换为适合训练UniLM模型的训练集**fea_story_train.json**与测试集**fea_story_dev.json**放在[**data**](https://github.com/Schlampig/OaKnights/tree/main/IsLandTalker/data)路径下。之后再运行时，**data2fea**方法会先检查是否已有**fea_story_train.json**与**fea_story_dev.json**，只有在检测不到时才会重新生成数据集。
 
 ### 4 文件架构
-将第2步与第3步得到的所有文件放在相应位置后，文件架构如下，可以开始训练模型了。
+将第2步与第3步得到的所有文件放在相应位置后，文件架构如下，可以开始训练模型了（[prepro_data.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/prepro_data.py)严格来说只是数据清洗，不属于训练的文件架构，因此未列出）。
 ```
 -> bert_codes -> __init__.py
              |-> modeling.py: BERT与UniLM模型核心代码
@@ -78,9 +78,25 @@
 ```
 
 ### 5 训练新语言模型
+在这个任务中，输入的形式为：*[CLS]已知文本[SEP]生成文本[END]*。运行[oak_train.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/oak_train.py)：
+```bash
+python oak_train.py
+```
+训练完毕后，会在[pretrained_model/unilm_1.2](https://github.com/Schlampig/OaKnights/tree/main/IsLandTalker/pretrained_model/unilm_1.2)路径下生成名为**islandtalker_model**的新模型文件（可以理解为，经过训练，原本的**unilm.pth**内相关参数得到更新，使得新的模型更适合方舟风格的台词）。另外，还会在同一个路径下生成训练参数信息文件**setting.txt**和训练日志文件**log.txt**。在与[oak_train.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/oak_train.py)同层目录下还会得到**log_result_now_epoch.txt**，用以记录最近一次跑验证集的结果。训练时长供参考：V100服务器4GPU，50个Epoch大约跑6小时，其实用不着这么多Epoch，一般15个Epoch就能得到比较通顺的句子了。
 
 ### 6 运行程序
+当运行[ask.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/ask.py)时，程序会首先调用[oak_predict.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/oak_predict.py)，后者实际就是载入新模型**islandtalker_model**并等待输入文本进行处理。
+```bash
+python ask.py
+```
+目前设计为可以不断提问、回答，若想结束，请输入“我问完了”。
 
+### Tips
+  - 为使生成效果更好，可以自行收集大量轻小说、文字冒险游戏的文本，先预精调（pre-finetune）一遍，再代入方舟文本精调（finetune）。截图中的效果正式采用这种方法得到的（可惜模型文件由于一些原因无法开源）。直接使用上述简化步骤所得模型效果较有限。事实上，这种预先让语言模型“适应”问题域或任务类型的方法有不少研究进展，可参考博客[Recent Advances in Language Model Fine-tuning](https://ruder.io/recent-advances-lm-fine-tuning/)([中文概述版](https://mp.weixin.qq.com/s/XVZSAxaWM30t9rOeXYM03A))。
+  - 数据质量对模型效果至关重要，由于方舟文本特色，建议针对大量省略号、括号、感叹号、问号、拟声词、空白等作处理。
+  - 尽量使得上下文长度适宜。
+  - 在解码阶段，这里使用了贪婪策略（每次取词典里概率最大的那个符号作为当前的输出结果），实际上有许多更经典的策略，比如BeamSearch(集束搜索)及相关变体，感兴趣可以查询并实践。
+  - 感兴趣可以尝试其他生成模型，例如[BART](https://huggingface.co/transformers/model_doc/bart.html)、[GPT-2](https://huggingface.co/transformers/model_doc/gpt2.html)、[T5](https://huggingface.co/transformers/model_doc/t5.html)等。
 
 
 ## 更新截点
