@@ -11,8 +11,8 @@
 </br>
 
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_03.jpeg" height=45% width=45% /></center>
-<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_04.jpeg" height=45% width=45% /></center>
-<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_05.jpeg" height=45% width=45% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_04.jpeg" height=25% width=25% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_05.jpeg" height=25% width=25% /></center>
 </br>
 
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_06.jpeg" height=45% width=45% /></center>
