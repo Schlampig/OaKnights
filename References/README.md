@@ -39,3 +39,4 @@
 
 ### 经典战役
   - [刻刀的238次红移——哨兵组长，你永远也到达不了我出刀的真实](https://www.bilibili.com/video/BV1Ap4y1r7Zb)(by [伊颜轩](https://space.bilibili.com/13262144?spm_id_from=333.788.b_765f7570696e666f.2))
+  - [一 力 降 十 会](https://www.bilibili.com/video/BV1zK4y1n7nY?from=search&seid=1564882288131493798)(by [MAJIHORSE](https://space.bilibili.com/10352261?spm_id_from=333.788.b_765f7570696e666f.2))
