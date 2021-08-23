@@ -33,9 +33,29 @@
   - PyTorch 1.2.0
   - UniLM (在PyTorch=1.4.0与Transformers=2.6.0训练出的模型，要想在PyTorch=1.2.0上跑起来只需要另存为pickle文件再读入就好，详见下文)
 
-### 2 
+### 2 准备预训练语言模型
 
-### 3
+### 3 准备数据
+
+### 4 文件架构
+```
+-> bert_codes -> __init__.py
+             |-> modeling.py: BERT与UniLM模型核心代码
+             |-> optimization.py: 优化算法相关代码
+             |-> tokenization.py: 分词策略相关代码
+             |-> utils.py: 其他辅助代码，包括文件读取、文本处理、文件储存等
+  |-> check_points -> 生成的新模型文件、该模型的配置文件、训练过程日志文件将放在这里
+  |-> data -> story_train.json & story_dev.json: 清洗后的原始文本
+          |-> fea_story_train.json & fea_story_dev.json: 经过oak_train.py预处理后生成的、用于训练与验证的数据集
+  |-> pretrained_model -> unilm_1.2 -> 上文第2步中得到的语言模型文件、语言模型配置文件、语言模型相关词表放在这里
+  |-> oak_train.py: 训练脚本，运行该脚本后，读取pretrained_model下的现有语言模型、生成check_points下的新语言模型
+  |-> oak_predict.py: 预测脚本，运行该脚本后，读取check_points下的新语言模型
+  |-> ask.py: 最终运行的脚本，调用oak_predict.py
+```
+
+### 5 训练新语言模型
+
+### 6 运行程序
 
 
 
