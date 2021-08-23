@@ -17,10 +17,10 @@
 - [x] [干员Wiki信息全表](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_all.csv)(更新至[画中人](http://prts.wiki/w/%E7%94%BB%E4%B8%AD%E4%BA%BA)活动)
 - [x] [干员图（OperatorGraph）](https://github.com/Schlampig/OaKnights/tree/main/OperatorGraph): 基于明日方舟中文Wiki的干员数据可视化小课题，以图谱形式呈现干员百态。
 - [x] [问泰拉（AskTerra）](https://github.com/Schlampig/OaKnights/tree/main/AskTerra): 基于干员维基与剧情文本的伪问答检索系统。
+- [x] [岛聊（IsLandTalker）](https://github.com/Schlampig/OaKnights/tree/main/IsLandTalker): 基于剧情文本的生成闲聊模型。
 
 ## 可露希尔实验室（待做课题）
 - [ ] CPMatcher
-- [ ] IslandTalker
 - [ ] ... 
 
 ## 声明
