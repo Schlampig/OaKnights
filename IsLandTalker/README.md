@@ -5,7 +5,19 @@
 
 
 ## 效果
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_00.jpeg" height=75% width=75% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_01.jpeg" height=75% width=75% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_02.jpeg" height=75% width=75% /></center>
+</br>
 
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_03.jpeg" height=75% width=75% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_04.jpeg" height=75% width=75% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_05.jpeg" height=75% width=75% /></center>
+</br>
+
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_06.jpeg" height=75% width=75% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_07.jpeg" height=75% width=75% /></center>
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_08.jpeg" height=75% width=75% /></center>
 
 ## 步骤
 
