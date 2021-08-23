@@ -34,7 +34,18 @@
   - UniLM (在PyTorch=1.4.0与Transformers=2.6.0训练出的模型，要想在PyTorch=1.2.0上跑起来只需要另存为pickle文件再读入就好，详见下文)
 
 ### 2 准备预训练语言模型
+  下载[中文版本UniLM](https://github.com/YunwenTechnology/Unilm)，里面包含三个文件：**vocab.txt**为词表，请将其中的\[unused99]改写为\[END]，即使用\[END]作为生成句子终止的标识符；**config.json**为该语言模型的配置信息，不作任何更改；**pytorch_model.bin**为中文UniLM模型文件，该模型是在1.4.0版PyTorch与2.6.0版Transformers下训练的，如果直接用现在的1.2.0版PyTorch读取，由于低版本框架读取高版本模型的缘故会报错。解决方法是，在高版本的PyTorch库中读取该模型、转存为pickle文件，再在低版本的实际运行环境里读取pickle文件即可：
 
+```
+# 在1.4.0版PyTorch下读取、存储
+import torch
+import pickle
+
+state_dict = torch.load("pytroch_model.bin", map_location=torch.device("cpu"))
+with open("unilm.pth", "wb") as f:
+    pickle.dump(state_dict, f)
+```
+  
 ### 3 准备数据
 
 ### 4 文件架构
