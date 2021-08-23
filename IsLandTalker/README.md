@@ -23,10 +23,12 @@
 
 ### 1 配置环境
 - 该课题的全部代码使用[Python](https://www.python.org/)脚本语言编写，在命令行运行。
-- 该课题使用的
+- 该课题使用深度学习框架[PyTorch](https://pytorch.org/)搭建神经网络模型。
+- 该课题使用的预训练语言模型为[UniLM](https://github.com/microsoft/unilm/tree/master/unilm)，最初由**微软**提出；该课题使用的是由**云问科技**开源的[中文版本](https://github.com/YunwenTechnology/Unilm)。
 - 相关软件版本如下：
   - Python 3.6.2
-  - 
+  - PyTorch
+  - UniLM
 
 ### 2
 
