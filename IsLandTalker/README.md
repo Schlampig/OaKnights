@@ -25,12 +25,15 @@
 - 该课题的全部代码使用[Python](https://www.python.org/)脚本语言编写，在命令行运行。
 - 该课题使用深度学习框架[PyTorch](https://pytorch.org/)搭建神经网络模型。
 - 该课题使用的预训练语言模型为[UniLM](https://github.com/microsoft/unilm/tree/master/unilm)，最初由**微软**提出；该课题使用的是由**云问科技**开源的[中文版本](https://github.com/YunwenTechnology/Unilm)。
-- 相关软件版本如下：
+- 该课题使用的BERT及UniLM相关脚本参考自[Transformers](https://github.com/huggingface/transformers)与[bert_cn_finetune](https://github.com/ewrfcas/bert_cn_finetune).
+- 建议感兴趣的朋友首先了解深度学习、自然语言处理、自然语言生成任务等相关方面的知识。
+- 该课题代码需要在GPU环境运行。
+- 主要软件或模型的版本如下：
   - Python 3.6.2
-  - PyTorch
-  - UniLM
+  - PyTorch 1.2.0
+  - UniLM (在PyTorch=1.4.0与Transformers=2.6.0训练出的模型，要想在PyTorch=1.2.0上跑起来只需要另存为pickle文件再读入就好，详见下文)
 
-### 2
+### 2 
 
 ### 3
 
