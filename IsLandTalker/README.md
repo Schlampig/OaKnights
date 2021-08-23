@@ -57,8 +57,10 @@
 :sweat_smile:为什么不直接在1.4.0甚至更高版本的PyTorch下完成整个模型的训练、运行呢？问得好，因为PyTorch安装得很早，因为懒没升级，所以……有兴趣的朋友不妨试试（应该不会报错，大概吧……）
   
 ### 3 准备数据
+第一遍运行[oak_train.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/oak_train.py)时,**data2fea**方法会将清洗后的[训练文本](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/data/story_train.json)与[验证文本](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/data/story_dev.json)转换为适合训练UniLM模型的训练集**fea_story_train.json**与测试集**fea_story_dev.json**放在[**data**](https://github.com/Schlampig/OaKnights/tree/main/IsLandTalker/data)路径下。之后再运行时，**data2fea**方法会先检查是否已有**fea_story_train.json**与**fea_story_dev.json**，只有在检测不到时才会重新生成数据集。
 
 ### 4 文件架构
+将第2步与第3步得到的所有文件放在相应位置后，文件架构如下，可以开始训练模型了。
 ```
 -> bert_codes -> __init__.py
              |-> modeling.py: BERT与UniLM模型核心代码
