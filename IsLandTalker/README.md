@@ -64,18 +64,25 @@
 ### 4 文件架构
 将第2步与第3步得到的所有文件放在相应位置后，文件架构如下，可以开始训练模型了（[prepro_data.py](https://github.com/Schlampig/OaKnights/blob/main/IsLandTalker/prepro_data.py)严格来说只是数据清洗，不属于训练的文件架构，因此未列出）。
 ```
--> bert_codes -> __init__.py
-             |-> modeling.py: BERT与UniLM模型核心代码
-             |-> optimization.py: 优化算法相关代码
-             |-> tokenization.py: 分词策略相关代码
-             |-> utils.py: 其他辅助代码，包括文件读取、文本处理、文件储存等
-  |-> check_points -> 生成的新模型文件、该模型的配置文件、训练过程日志文件将放在这里
-  |-> data -> story_train.json & story_dev.json: 清洗后的原始文本
-          |-> fea_story_train.json & fea_story_dev.json: 经过oak_train.py预处理后生成的、用于训练与验证的数据集
-  |-> pretrained_model -> unilm_1.2 -> 上文第2步中得到的语言模型文件、语言模型配置文件、语言模型相关词表放在这里
-  |-> oak_train.py: 训练脚本，运行该脚本后，读取pretrained_model下的现有语言模型、生成check_points下的新语言模型
-  |-> oak_predict.py: 预测脚本，运行该脚本后，读取check_points下的新语言模型
-  |-> ask.py: 最终运行的脚本，调用oak_predict.py
+-> bert_codes ----------> __init__.py
+                      |-> modeling.py                          # BERT与UniLM模型核心代码
+                      |-> optimization.py                      # 优化算法相关代码
+                      |-> tokenization.py                      # 分词策略相关代码
+                      |-> utils.py                             # 其他辅助代码，包括文件读取、文本处理、文件储存等
+  |-> check_points -----> islandtalker_model                   # 生成的新模型文件
+                      |-> setting.txt                          # 生成的新模型的配置文件
+                      |-> log.txt                              # 生成的训练过程日志文件
+  |-> data -------------> story_train.json                     # 清洗后的原始文本
+                      |-> story_dev.json                       # 同上
+                      |-> fea_story_train.json                 # 经过oak_train.py预处理后生成的、用于训练与验证的数据集
+                      |-> fea_story_dev.json                   # 同上
+  |-> pretrained_model -> unilm_1.2 -> unilm.pth               # 上文第2步中得到的语言模型文件
+                                   |-> config.json             # 上文第2步中得到的语言模型配置文件
+                                   |-> vocab.txt               # 上文第2步中得到的语言模型相关词表
+  |-> log_result_now_epoch.txt                                 # 最近一次验证结果文件
+  |-> oak_train.py                                             # 训练脚本，读取pretrained_model下的现有语言模型、生成check_points下的新语言模型
+  |-> oak_predict.py                                           # 预测脚本，运行该脚本后，读取check_points下的新语言模型
+  |-> ask.py                                                   # 最终运行的脚本，调用oak_predict.py
 ```
 
 ### 5 训练新语言模型
