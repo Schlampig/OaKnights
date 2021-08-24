@@ -54,6 +54,7 @@
           state_dict = pickle.load(f)
   ```
 最后，把**vocab.txt**、**config.json**、**unilm.pth**三个文件放在[**check_points**](https://github.com/Schlampig/OaKnights/tree/main/IsLandTalker/check_points)路径下。
+
 :sweat_smile:为什么不直接在1.4.0甚至更高版本的PyTorch下完成整个模型的训练、运行呢？问得好，因为PyTorch安装得很早，因为懒没升级，所以……有兴趣的朋友不妨试试（应该不会报错，大概吧……）
   
 ### 3 准备数据
