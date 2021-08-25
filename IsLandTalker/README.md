@@ -106,6 +106,7 @@ python ask.py
 ### Tips
   - 为使生成效果更好，可以自行收集大量轻小说、文字冒险游戏的文本，先预精调（pre-finetune）一遍，再代入方舟文本精调（finetune）。截图中的效果正式采用这种方法得到的（可惜模型文件由于一些原因无法开源）。直接使用上述简化步骤所得模型效果较有限。事实上，这种预先让语言模型“适应”问题域或任务类型的方法有不少研究进展，可参考博客[Recent Advances in Language Model Fine-tuning](https://ruder.io/recent-advances-lm-fine-tuning/)([中文概述版](https://mp.weixin.qq.com/s/XVZSAxaWM30t9rOeXYM03A))。
   - 数据质量对模型效果至关重要，由于方舟文本特色，建议针对大量省略号、括号、感叹号、问号、拟声词、空白等作处理。
+  - 训练语言模型本身的策略可能导致不同的呈现效果，尝试不同的mask或attention策略以优化预训练语言模型。
   - 尽量使得上下文长度适宜。
   - 在解码阶段，这里使用了贪婪策略（每次取词典里概率最大的那个符号作为当前的输出结果），实际上有许多更经典的策略，比如BeamSearch(集束搜索)及相关变体，感兴趣可以查询并实践。
   - 感兴趣可以尝试其他生成模型，例如[BART](https://huggingface.co/transformers/model_doc/bart.html)、[GPT-2](https://huggingface.co/transformers/model_doc/gpt2.html)、[T5](https://huggingface.co/transformers/model_doc/t5.html)等。
