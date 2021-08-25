@@ -18,6 +18,10 @@
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_06.jpeg" height=45% width=45% /></center>
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_07.jpeg" height=45% width=45% /></center>
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_08.jpeg" height=45% width=45% /></center>
+</br>
+
+<center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_it_09.jpg" height=45% width=45% /></center>
+
 
 ## 步骤
 
