@@ -29,6 +29,7 @@
   - [败花有情](https://space.bilibili.com/518947650/)
   - [枢院爱莉丝](https://space.bilibili.com/86470887/)
   - [ins2](https://space.bilibili.com/2647287/)
+  - [功课姬](https://space.bilibili.com/26234098)
   - [魔法Zc目录](https://space.bilibili.com/13164144/)
   - [好吃的橘子鸭](https://space.bilibili.com/26293669/)
 
