@@ -44,3 +44,4 @@
   - [一 力 降 十 会](https://www.bilibili.com/video/BV1zK4y1n7nY?share_source=copy_web) by [MAJIHORSE](https://space.bilibili.com/10352261?spm_id_from=333.788.b_765f7570696e666f.2)
   - [【全网首杀】这是一个耗时一年多通关的课题——麦哲伦单人突袭6-3](https://www.bilibili.com/video/BV1Tq4y1f76K?share_source=copy_web) by [龙门作战组](https://space.bilibili.com/89109764) 等
   - [【铅封行动】纯狙击2人18级无序矿区，千万别抄](https://www.bilibili.com/video/BV1gK4y1s7YY?share_source=copy_web) by [绿拐_Revive](https://space.bilibili.com/8478452?spm_id_from=333.788.b_765f7570696e666f.2)
+  - [【蛮鳞行动】纯先锋新约23级 深度渗透：？？？](https://www.bilibili.com/video/BV1dy4y1G7jX?share_source=copy_web) by [骐骥_](https://space.bilibili.com/410945045?spm_id_from=333.788.b_765f7570696e666f.2)
