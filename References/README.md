@@ -41,5 +41,5 @@
 ### 经典战役
   - [3000块全没了！各位一定要管好自己，我真服了！](https://www.bilibili.com/video/BV1cf4y1W771) by [一只大哈鱼](https://space.bilibili.com/624757844?spm_id_from=333.788.b_765f7570696e666f.2)
   - [刻刀的238次红移——哨兵组长，你永远也到达不了我出刀的真实](https://www.bilibili.com/video/BV1Ap4y1r7Zb)(by [伊颜轩](https://space.bilibili.com/13262144?spm_id_from=333.788.b_765f7570696e666f.2))
-  - [一 力 降 十 会](https://www.bilibili.com/video/BV1zK4y1n7nY?from=search&seid=1564882288131493798)(by [MAJIHORSE](https://space.bilibili.com/10352261?spm_id_from=333.788.b_765f7570696e666f.2))
+  - [一 力 降 十 会](https://www.bilibili.com/video/BV1zK4y1n7nY?share_source=copy_web)(by [MAJIHORSE](https://space.bilibili.com/10352261?spm_id_from=333.788.b_765f7570696e666f.2))
   - [【全网首杀】这是一个耗时一年多通关的课题——麦哲伦单人突袭6-3](https://www.bilibili.com/video/BV1Tq4y1f76K?share_source=copy_web)(by [龙门作战组](https://space.bilibili.com/89109764) 等)
