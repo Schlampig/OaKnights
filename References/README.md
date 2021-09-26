@@ -43,3 +43,4 @@
   - [刻刀的238次红移——哨兵组长，你永远也到达不了我出刀的真实](https://www.bilibili.com/video/BV1Ap4y1r7Zb?share_source=copy_web) by [伊颜轩](https://space.bilibili.com/13262144?spm_id_from=333.788.b_765f7570696e666f.2)
   - [一 力 降 十 会](https://www.bilibili.com/video/BV1zK4y1n7nY?share_source=copy_web) by [MAJIHORSE](https://space.bilibili.com/10352261?spm_id_from=333.788.b_765f7570696e666f.2)
   - [【全网首杀】这是一个耗时一年多通关的课题——麦哲伦单人突袭6-3](https://www.bilibili.com/video/BV1Tq4y1f76K?share_source=copy_web) by [龙门作战组](https://space.bilibili.com/89109764) 等
+  - [【铅封行动】纯狙击2人18级无序矿区，千万别抄](https://www.bilibili.com/video/BV1gK4y1s7YY?share_source=copy_web) by [绿拐_Revive](https://space.bilibili.com/8478452?spm_id_from=333.788.b_765f7570696e666f.2)
