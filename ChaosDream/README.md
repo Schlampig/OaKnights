@@ -60,7 +60,7 @@
     ```
   * 而深梦脚本会逐个处理content_fig图像：
     ```bash
-    python neural_style_transfer.py
+    python deep_dream.py
     ```
   * 嫌麻烦的话，可以在脚本里找单独执行一次的函数来调用即可。生成的图像都在当前目录下存放。
 
