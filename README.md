@@ -18,10 +18,10 @@
 - [x] [干员图（OperatorGraph）](https://github.com/Schlampig/OaKnights/tree/main/OperatorGraph): 基于明日方舟中文Wiki的干员数据可视化小课题，以图谱形式呈现干员百态。
 - [x] [问泰拉（AskTerra）](https://github.com/Schlampig/OaKnights/tree/main/AskTerra): 基于干员维基与剧情文本的伪问答检索系统。
 - [x] [岛聊（IsLandTalker）](https://github.com/Schlampig/OaKnights/tree/main/IsLandTalker): 基于剧情文本的生成闲聊模型。
+- [x] [混沌迷梦（ChaosDream）](https://github.com/Schlampig/OaKnights/blob/main/ChaosDream/README.md): 基于干员图像与世界名画的风格迁移算法。
 <br>
 
 ## 可露希尔实验室（待做课题）
-- [ ] ChaosDream
 - [ ] CPMatcher
 - [ ] ... 
 <br>
