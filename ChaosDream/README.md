@@ -37,7 +37,7 @@
   - Python 3.6.2
   - PyTorch 1.5.0 与相应版本的 Torchvision 0.2.0
   - Python Imaging Library (PIL) 5.0.0
-  - [VGG16](https://download.pytorch.org/models/vgg16-397923af.pth)(在torchvision.models脚本中可以找到各自预训练图像模型的下载地址，也可以尝试vgg19、resent50等模型)
+  - [VGG16](https://download.pytorch.org/models/vgg16-397923af.pth)(在torchvision.models脚本中可以找到各种预训练图像模型的下载地址，也可以尝试vgg19、resent50等模型。注意：在第一次运行时如果还没有下载相应模型，程序会自动下载。但如果已经单独从别的地方下载了模型，那么需要把下载的模型放到正确路径才能让torchvision调用。路径有/.cache/torch/checkpoints/或者~/.torch/models/等，不同路径取决于操作系统是ubuntu、windows还是osx。)
 
 ### 2 准备数据
   * 神经风格迁移需要输入内容图像（content_fig）与风格图像（style_fig），最终生成的图像内容来自content_fig，风格则是style_fig的。
@@ -67,6 +67,11 @@
 ### 5 学习材料
   * [AI-Art](https://github.com/Adi-iitd/AI-Art): about PyTorch (and PyTorch Lightning) implementation of Neural Style Transfer, Pix2Pix, CycleGAN, and Deep Dream.
   * [deepdream](https://github.com/google/deepdream) and its various approaches/tutorials: [pytorch-deepdream](https://github.com/gordicaleksa/pytorch-deepdream), [neural-dream](https://github.com/ProGamerGov/neural-dream), [deep-dream-pytorch](https://github.com/wmn7/ML_Practice/blob/master/2019_05_27/deep-dream-pytorch.ipynb).
+
+### 后日谈
+  * 人们发现深度卷积神经网络中，浅层记住的主要是图像的边缘特征（琐碎但具象），深层记住的是图像的整体轮廓（完备而抽象）。
+  * 人们觉得，所谓的“画风”更倾向于边缘特征，所谓的“主题”（或内容）更倾向于整体轮廓。
+  * 这些观察心得如果适用于生物的视神经原理，那么浅层神经变异的生物将会看到不同其他同类的风景，而深层神经变异的生物将会看到无尽的碎片，那还真是一场混沌迷梦呢。
 
 ## 更新截点
 2022年2月7日，干员信息更新至[将进酒](https://prts.wiki/w/%E5%B0%86%E8%BF%9B%E9%85%92)活动。
