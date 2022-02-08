@@ -23,6 +23,7 @@
 <left><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_cd_nst_Skadi_3.jpg" height=25% width=25% /></left>
 <right><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_cd_nst_Skadi_4.jpg" height=25% width=25% /></right>
 <left><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_cd_nst_Skadi_5.jpg" height=25% width=25% /></left>
+<right><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_cd_dreamed_Skadi.jpg" height=25% width=25% /></right>
 </br>
 
 ## 步骤
