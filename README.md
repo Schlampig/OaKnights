@@ -13,7 +13,7 @@
 <br>
 
 ## 罗德岛猫爬架(已完成课题)
-- [x] [干员职业谱系与培养参考图](https://github.com/Schlampig/OaKnights/blob/main/OperatorSchema/%E6%96%B9%E8%88%9F%E5%B9%B2%E5%91%98%E8%81%8C%E4%B8%9A%E8%B0%B1%E7%B3%BB%E4%B8%8E%E5%9F%B9%E5%85%BB%E5%8F%82%E8%80%83_20210218.png)(更新至[画中人](http://prts.wiki/w/%E7%94%BB%E4%B8%AD%E4%BA%BA)活动)
+- [x] [干员职业谱系与培养参考图](https://github.com/Schlampig/OaKnights/blob/main/OperatorSchema/%E6%96%B9%E8%88%9F%E5%B9%B2%E5%91%98%E8%81%8C%E4%B8%9A%E8%B0%B1%E7%B3%BB%E4%B8%8E%E5%9F%B9%E5%85%BB%E5%8F%82%E8%80%83_20210218.png)(至[画中人](http://prts.wiki/w/%E7%94%BB%E4%B8%AD%E4%BA%BA)活动，由于鹰角推出细分谱系，该课题不再更新)
 - [x] [干员Wiki信息全表](https://github.com/Schlampig/OaKnights/blob/main/RelateData/operator_all.csv)(更新至[画中人](http://prts.wiki/w/%E7%94%BB%E4%B8%AD%E4%BA%BA)活动)
 - [x] [干员图（OperatorGraph）](https://github.com/Schlampig/OaKnights/tree/main/OperatorGraph): 基于明日方舟中文Wiki的干员数据可视化小课题，以图谱形式呈现干员百态。
 - [x] [问泰拉（AskTerra）](https://github.com/Schlampig/OaKnights/tree/main/AskTerra): 基于干员维基与剧情文本的伪问答检索系统。
