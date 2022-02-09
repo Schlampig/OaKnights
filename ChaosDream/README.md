@@ -6,7 +6,7 @@
 
 ## 效果
 
-### 使用神经风格迁移的效果（猜猜看都是谁）
+### 使用神经风格迁移的效果（猜猜看都是谁，用了哪幅名画的风格）
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_cd_nst_BeesWax.jpg" height=45% width=45% /></center>
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_cd_nst_Glaucus.jpg" height=45% width=45% /></center>
 <center><img src="https://github.com/Schlampig/OaKnights/blob/main/ExamplePicture/eg_cd_nst_Indigo.jpg" height=45% width=45% /></center>
