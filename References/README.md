@@ -40,7 +40,7 @@
   - [arknights-toolbox by Arknights Tools](https://github.com/arkntools/arknights-toolbox)
 
 ### 经典战役
-  - [3000块全没了！各位一定要管好自己，我真服了！](https://www.bilibili.com/video/BV1cf4y1W771) by [一只大哈鱼](https://space.bilibili.com/624757844) in 2021-05-02.
+  - [**3000块全没了！各位一定要管好自己，我真服了！**](https://www.bilibili.com/video/BV1cf4y1W771) by [一只大哈鱼](https://space.bilibili.com/624757844) in 2021-05-02.
   - [刻刀的238次红移——哨兵组长，你永远也到达不了我出刀的真实](https://www.bilibili.com/video/BV1Ap4y1r7Zb?share_source=copy_web) by [伊颜轩](https://space.bilibili.com/13262144) in 2020-11-19.
   - [【铅封行动】纯狙击2人18级无序矿区，千万别抄](https://www.bilibili.com/video/BV1gK4y1s7YY?share_source=copy_web) by [绿拐_Revive](https://space.bilibili.com/8478452) in 2021-01-26.
   - [一 力 降 十 会](https://www.bilibili.com/video/BV1zK4y1n7nY?share_source=copy_web) by [MAJIHORSE](https://space.bilibili.com/10352261) in 2021-02-13.
