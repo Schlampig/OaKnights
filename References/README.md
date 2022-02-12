@@ -42,10 +42,10 @@
 ### 经典战役
   - [3000块全没了！各位一定要管好自己，我真服了！](https://www.bilibili.com/video/BV1cf4y1W771) by [一只大哈鱼](https://space.bilibili.com/624757844) in 2021-05-02.
   - [刻刀的238次红移——哨兵组长，你永远也到达不了我出刀的真实](https://www.bilibili.com/video/BV1Ap4y1r7Zb?share_source=copy_web) by [伊颜轩](https://space.bilibili.com/13262144) in 2020-11-19.
-  - [一 力 降 十 会](https://www.bilibili.com/video/BV1zK4y1n7nY?share_source=copy_web) by [MAJIHORSE](https://space.bilibili.com/10352261) in 2021-02-13.
-  - [【全网首杀】这是一个耗时一年多通关的课题——麦哲伦单人突袭6-3](https://www.bilibili.com/video/BV1Tq4y1f76K?share_source=copy_web) by [龙门作战组](https://space.bilibili.com/89109764) 等 in 2021-09-12.
   - [【铅封行动】纯狙击2人18级无序矿区，千万别抄](https://www.bilibili.com/video/BV1gK4y1s7YY?share_source=copy_web) by [绿拐_Revive](https://space.bilibili.com/8478452) in 2021-01-26.
+  - [一 力 降 十 会](https://www.bilibili.com/video/BV1zK4y1n7nY?share_source=copy_web) by [MAJIHORSE](https://space.bilibili.com/10352261) in 2021-02-13.
   - [【蛮鳞行动】纯先锋新约23级 深度渗透：？？？](https://www.bilibili.com/video/BV1dy4y1G7jX?share_source=copy_web) by [骐骥_](https://space.bilibili.com/410945045) in 2021-09-04.
-  - [【全网首发】0人通关困难傀影](https://www.bilibili.com/video/BV1pq4y1A7pB?share_source=copy_web) by [伊颜轩](https://space.bilibili.com/13262144) in 2022-01-13.
+  - [【全网首杀】这是一个耗时一年多通关的课题——麦哲伦单人突袭6-3](https://www.bilibili.com/video/BV1Tq4y1f76K?share_source=copy_web) by [龙门作战组](https://space.bilibili.com/89109764) 等 in 2021-09-12.
   - [四个干员，通关明日方舟](https://www.bilibili.com/video/BV1yg411A77f?share_source=copy_web) by [巴别塔攻略组](https://space.bilibili.com/21342479)等 in 2021-11-29.
+  - [【全网首发】0人通关困难傀影](https://www.bilibili.com/video/BV1pq4y1A7pB?share_source=copy_web) by [伊颜轩](https://space.bilibili.com/13262144) in 2022-01-13.
   - [【全网唯一】真·单人7-18 终结时代](https://www.bilibili.com/video/BV1Su41197Ay?share_source=copy_web) by [巅峰计划](https://space.bilibili.com/60400874) in 2022-02-12.
