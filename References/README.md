@@ -49,3 +49,5 @@
   - [四个干员，通关明日方舟](https://www.bilibili.com/video/BV1yg411A77f?share_source=copy_web) by [巴别塔攻略组](https://space.bilibili.com/21342479)等 in 2021-11-29.
   - [【全网首发】0人通关困难傀影](https://www.bilibili.com/video/BV1pq4y1A7pB?share_source=copy_web) by [伊颜轩](https://space.bilibili.com/13262144) in 2022-01-13.
   - [【全网唯一】真·单人7-18 终结时代](https://www.bilibili.com/video/BV1Su41197Ay?share_source=copy_web) by [巅峰计划](https://space.bilibili.com/60400874) in 2022-02-12.
+  - [刻刀：那必须是我了！](https://www.bilibili.com/video/BV1NU4y127yL?share_source=copy_web) by [巅峰计划](https://space.bilibili.com/60400874) in 2022-05-24.
+  - [史上最爽！温蒂一炮123杀](https://www.bilibili.com/video/BV18Z4y147pS?share_source=copy_web) by [巅峰计划](https://space.bilibili.com/60400874)等 in 2022-05-31.
