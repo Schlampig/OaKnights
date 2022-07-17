@@ -34,21 +34,21 @@
 - 该课题的全部代码使用[Python](https://www.python.org/)脚本语言编写，在命令行运行。
 - 主要软件或模型的版本如下：
   - Python 3.6.2
-  - jieba 0.39
-  - numpy 1.16.3
-  - matplotlib 2.2.3
-  - PIL 5.0.0
-  - sklearn 0.18.2
-  - wordcloud 1.7.0
+  - [jieba](https://github.com/fxsjy/jieba) 0.39
+  - [numpy](https://numpy.org/) 1.16.3
+  - [matplotlib](https://matplotlib.org/) 2.2.3
+  - [PIL](https://www.osgeo.cn/pillow/index.html) 5.0.0
+  - [sklearn](https://scikit-learn.org/stable/) 0.18.2
+  - [wordcloud](https://github.com/amueller/word_cloud) 1.7.0
 
 ### 2 文件架构
 ```
----> dictionary ---> stopwords.txt  # 存放停用词词典
-              | ---> terrawords.json  # 存放泰拉专有词词典
-              | ---> build_terra_dictionay.py  # 生成泰拉专有词词典的脚本，可独立于该课题外使用
- |-> font --->  FZSuHJW.TTF  # 存放词云使用的字体文件，本课题目前使用免费的方正速黑字体库
- |-> img --->  XXX.jpg  # 存放作为词云底层轮廓的角色图片，建议使用.jpg格式且不超过1MB的图
- |-> text ---> XXX.txt  # 存放角色相关文本语料
+---> dictionary --->   stopwords.txt  # 存放停用词词典
+              | --->   terrawords.json  # 存放泰拉专有词词典
+              | --->   build_terra_dictionay.py  # 生成泰拉专有词词典的脚本，可独立于该课题外使用
+ |-> font --->    FZSuHJW.TTF  # 存放词云使用的字体文件，本课题目前使用免费的方正速黑字体库
+ |-> img --->     XXX.jpg  # 存放作为词云底层轮廓的角色图片，建议使用.jpg格式且不超过1MB的图
+ |-> text --->    XXX.txt  # 存放角色相关文本语料
  |-> results ---> XXX.jpg  # 提供的示例效果图，不是直接由脚本生成、存储的（若需要，可修改代码自动存图）
  create_cloud.py  # 生成词语的代码
 ```
@@ -61,7 +61,7 @@
 
 ### 4 构建词云
   * 构建文案：输入词云文案（可视为一个长字符串），经过分词（加入泰拉词典以增强准确性）、去停用词处理后，在文案中加入自定义关键词（如果不设置，则默认不使用），最后将文案词袋用空格相连、拼接成用于生成词语的字符串即可。
-  * 构建轮廓图：输入原始.jpg格式的例会图，在脚本[create_cloud.py](https://github.com/Schlampig/OaKnights/blob/main/AClouds/create_cloud.py)的方法**img_to_colormap**中，使用[K均值聚类算法](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans)将例会图中的色谱大致分为K类作为词云中关键字的颜色。
+  * 构建轮廓图：输入原始.jpg格式的立绘图，在脚本[create_cloud.py](https://github.com/Schlampig/OaKnights/blob/main/AClouds/create_cloud.py)的方法**img_to_colormap**中，使用[K均值聚类算法](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans)将立绘图中的色谱大致分为K类作为词云中关键字的颜色。
   * 构建词云：在脚本[create_cloud.py](https://github.com/Schlampig/OaKnights/blob/main/AClouds/create_cloud.py)的方法**get_cloud**中，将预处理好的文案与轮廓图数据输入wordcloud库的方法**WordCloud**中构建词云，再由matplotlib库的方法**imshow**显示。
 
 ### 5 运行程序
