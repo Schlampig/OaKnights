@@ -31,7 +31,6 @@
   - [ins2](https://space.bilibili.com/2647287/)
   - [功课姬](https://space.bilibili.com/26234098)
   - [魔法Zc目录](https://space.bilibili.com/13164144/)
-  - [好吃的橘子鸭](https://space.bilibili.com/26293669/)
 
 ### 解包数据
   - [ArknightsData by Dimbreath](https://github.com/Dimbreath/ArknightsData)
