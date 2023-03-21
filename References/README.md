@@ -50,3 +50,4 @@
   - [【全网唯一】真·单人7-18 终结时代](https://www.bilibili.com/video/BV1Su41197Ay?share_source=copy_web) by [巅峰计划](https://space.bilibili.com/60400874) in 2022-02-12.
   - [刻刀：那必须是我了！](https://www.bilibili.com/video/BV1NU4y127yL?share_source=copy_web) by [巅峰计划](https://space.bilibili.com/60400874) in 2022-05-24.
   - [史上最爽！温蒂一炮123杀](https://www.bilibili.com/video/BV18Z4y147pS?share_source=copy_web) by [巅峰计划](https://space.bilibili.com/60400874)等 in 2022-05-31.
+  - [「明日方舟」我准备了三年的时间，只为这一刻——一次性!精二两百个干员!](https://www.bilibili.com/video/BV1ny4y1d7EV/?share_source=copy_web&vd_source=4efd4f95cba6924d99bff4c66cd37a18) by [榊崎贤二](https://space.bilibili.com/2030751950) in 2023-01-23
