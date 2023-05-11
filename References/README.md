@@ -7,6 +7,7 @@
   - [明日方舟 PRTS](http://prts.wiki/w/%E9%A6%96%E9%A1%B5)
   - [企鹅物流数据统计](https://penguin-stats.cn/)
   - [awesome-Arknights](https://github.com/cyf-gh/awesome-Arknights)
+  - [ArkStory](https://rhodesworkers.ltd/story)
 
 ### 背景考据
   - [瓦莱塔学会Valletta](https://space.bilibili.com/573959614/)
