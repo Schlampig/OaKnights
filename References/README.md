@@ -39,6 +39,10 @@
   - [ArknightsAutoHelper by ShaoBaoEr](https://github.com/ninthDevilHAUNSTER/ArknightsAutoHelper)
   - [arknights-toolbox by Arknights Tools](https://github.com/arkntools/arknights-toolbox)
 
+### 刻刀自用
+  - [【明日方舟MMD/刻刀】我的刀会为你斩断一切阻碍，刀客塔！](https://www.bilibili.com/video/BV1BQ4y1P7SA/?share_source=copy_web&vd_source=4efd4f95cba6924d99bff4c66cd37a18) by [月厨tony酱](https://space.bilibili.com/66450641)
+  - [《明日方舟》有时离别是唯一的方式 | 刻刀 | Shadow of the Day - Linkin Park](https://www.bilibili.com/video/BV1jD42137zc/?share_source=copy_web&vd_source=4efd4f95cba6924d99bff4c66cd37a18) by [贪睡的十一](https://space.bilibili.com/2347012)
+
 ### 经典战役
   - [**3000块全没了！各位一定要管好自己，我真服了！**](https://www.bilibili.com/video/BV1cf4y1W771) by [一只大哈鱼](https://space.bilibili.com/624757844) in 2021-05-02.
   - [**我的出租屋里真的有很多蟑螂，但我认识的粥批真的没有几个**](https://www.bilibili.com/video/BV155MSziEtM/?share_source=copy_web&vd_source=4efd4f95cba6924d99bff4c66cd37a18) by [发誓不做夜猫子](https://space.bilibili.com/393849800) in 2025-06-21.
